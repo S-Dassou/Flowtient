@@ -16,16 +16,24 @@ import SwiftUI
 struct FocusTimeSetView: View {
     
     @State var timeSelected: CGFloat = 0.0
+    @State var navigateToIntentView = false
     
     var body: some View {
         VStack {
             Text("T I M E")
                 .padding(.top, 40)
-            Text("Our Most Precious Commodity")
+            Text("Your Most Precious Commodity")
+            Text("Select How Long You Want To Focus For")
                 .padding(.top, 20)
             Spacer()
             CircularSlider()
             Spacer()
+            PrimaryButton(title: "Next") {
+                navigateToIntentView = true
+            }
+        }
+        .navigationDestination(isPresented: $navigateToIntentView) {
+            FocusIntentionSetView()
         }
     }
 }
