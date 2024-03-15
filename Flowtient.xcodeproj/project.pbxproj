@@ -13,6 +13,7 @@
 		F67893BB2BA3BC3500ACA13F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F67893BA2BA3BC3500ACA13F /* Preview Assets.xcassets */; };
 		F67893C22BA3BC7100ACA13F /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67893C12BA3BC7100ACA13F /* Login.swift */; };
 		F67893C62BA3BDEE00ACA13F /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67893C52BA3BDEE00ACA13F /* PrimaryButton.swift */; };
+		F67893C82BA446F900ACA13F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67893C72BA446F900ACA13F /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		F67893BA2BA3BC3500ACA13F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F67893C12BA3BC7100ACA13F /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		F67893C52BA3BDEE00ACA13F /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		F67893C72BA446F900ACA13F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,12 +57,14 @@
 		F67893B22BA3BC3200ACA13F /* Flowtient */ = {
 			isa = PBXGroup;
 			children = (
+				F67893CA2BA46DCE00ACA13F /* Services */,
 				F67893C42BA3BDCE00ACA13F /* Components */,
 				F67893C32BA3BC7500ACA13F /* Auth */,
 				F67893B32BA3BC3200ACA13F /* FlowtientApp.swift */,
 				F67893B52BA3BC3200ACA13F /* ContentView.swift */,
 				F67893B72BA3BC3500ACA13F /* Assets.xcassets */,
 				F67893B92BA3BC3500ACA13F /* Preview Content */,
+				F67893C72BA446F900ACA13F /* HomeView.swift */,
 			);
 			path = Flowtient;
 			sourceTree = "<group>";
@@ -87,6 +91,13 @@
 				F67893C52BA3BDEE00ACA13F /* PrimaryButton.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		F67893CA2BA46DCE00ACA13F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,6 +173,7 @@
 				F67893C22BA3BC7100ACA13F /* Login.swift in Sources */,
 				F67893B62BA3BC3200ACA13F /* ContentView.swift in Sources */,
 				F67893C62BA3BDEE00ACA13F /* PrimaryButton.swift in Sources */,
+				F67893C82BA446F900ACA13F /* HomeView.swift in Sources */,
 				F67893B42BA3BC3200ACA13F /* FlowtientApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

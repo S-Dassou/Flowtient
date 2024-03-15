@@ -11,7 +11,17 @@ import SwiftUI
 struct FlowtientApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            
+            TabView {
+                ContentView()
+                    .tabItem {
+                        Image(systemName: "house.fill")
+                        Text("Home")
+                    }
+                    .tag(0)
+                
+            }
+            
         }
     }
 }
