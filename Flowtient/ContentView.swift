@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var navigateToFocusMode = false
+    
     var body: some View {
         VStack {
             Image(systemName: "timer")
@@ -20,9 +23,12 @@ struct ContentView: View {
             }
             
             PrimaryButton(title: "Start Focus Mode") {
-                
+                navigateToFocusMode = true
             }
         }
+        .fullScreenCover(isPresented: $navigateToFocusMode, content: {
+            /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Content@*/Text("Placeholder")/*@END_MENU_TOKEN@*/
+        })
     }
 }
 
