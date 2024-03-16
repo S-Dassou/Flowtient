@@ -17,6 +17,7 @@
 		F67893D12BA480DD00ACA13F /* FocusTimeSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67893D02BA480DD00ACA13F /* FocusTimeSetView.swift */; };
 		F67893D32BA48DC200ACA13F /* FocusIntentionSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67893D22BA48DC200ACA13F /* FocusIntentionSetView.swift */; };
 		F67893D72BA49A9800ACA13F /* IntentionIconCircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67893D62BA49A9800ACA13F /* IntentionIconCircleButton.swift */; };
+		F67893D92BA51CB300ACA13F /* AppPermissionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67893D82BA51CB300ACA13F /* AppPermissionsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		F67893D02BA480DD00ACA13F /* FocusTimeSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusTimeSetView.swift; sourceTree = "<group>"; };
 		F67893D22BA48DC200ACA13F /* FocusIntentionSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusIntentionSetView.swift; sourceTree = "<group>"; };
 		F67893D62BA49A9800ACA13F /* IntentionIconCircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentionIconCircleButton.swift; sourceTree = "<group>"; };
+		F67893D82BA51CB300ACA13F /* AppPermissionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPermissionsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 			children = (
 				F67893D02BA480DD00ACA13F /* FocusTimeSetView.swift */,
 				F67893D22BA48DC200ACA13F /* FocusIntentionSetView.swift */,
+				F67893D82BA51CB300ACA13F /* AppPermissionsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F67893D92BA51CB300ACA13F /* AppPermissionsView.swift in Sources */,
 				F67893C22BA3BC7100ACA13F /* Login.swift in Sources */,
 				F67893D32BA48DC200ACA13F /* FocusIntentionSetView.swift in Sources */,
 				F67893B62BA3BC3200ACA13F /* ContentView.swift in Sources */,

@@ -45,11 +45,14 @@ struct FocusIntentionSetView: View {
             
             Text("Tag your Focus Session")
                 .padding(.top, 40)
-            
-            LazyVGrid(columns: [], content: {
-                Text("Placeholder")
-                Text("Placeholder")
-            })
+            VStack {
+                HStack(spacing: 50) {
+                    IntentionIconCircleButton(imageName: "briefcase", title: "Work")
+                    IntentionIconCircleButton(imageName: "person", title: "iOS")
+                    IntentionIconCircleButton(imageName: "lock.display", title: "Computer")
+                }
+            }
+            .padding(.top, 30)
             Spacer()
         }
     }

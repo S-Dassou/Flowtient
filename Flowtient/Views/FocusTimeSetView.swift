@@ -45,14 +45,14 @@ struct FocusTimeSetView: View {
 struct CircularSlider: View {
     
     @State private var sliderValue: Double = 0
-    private let sliderRange = 0.0...240.0
+    private let sliderRange = 0.0...241.0
     
     var body: some View {
         ZStack {
             Circle()
                 .stroke(Color.gray, lineWidth: 20)
             Circle()
-                .trim(from: 0, to: CGFloat(sliderValue / 240))
+                .trim(from: 0, to: CGFloat(sliderValue / 241))
                 .stroke(Color.blue, lineWidth: 20)
                 .rotationEffect(.degrees(-90))
             
@@ -74,7 +74,7 @@ struct CircularSlider: View {
                 let vector = CGVector(dx: value.location.x - 150, dy: value.location.y - 150)
                 let angle = atan2(vector.dy, vector.dx) + .pi / 2
                 let value = angle >= 0 ? angle : angle + 2 * .pi
-                sliderValue = max(sliderRange.lowerBound, min(sliderRange.upperBound, Double(value) * 240 / (2 * .pi)))
+                sliderValue = max(sliderRange.lowerBound, min(sliderRange.upperBound, Double(value) * 241 / (2 * .pi)))
             })
         )
     }
