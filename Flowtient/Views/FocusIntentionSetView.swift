@@ -10,7 +10,11 @@ import SwiftUI
 struct FocusIntentionSetView: View {
     @State var goalOne: String = ""
     @State var goalTwo: String = ""
+    @State var textFieldArray: [IntentionTextFieldRow] = [IntentionTextFieldRow()]
     
+    func addTextField() {
+        textFieldArray.append(IntentionTextFieldRow())
+    }
     
     var body: some View {
         VStack(alignment: .center) {
@@ -18,27 +22,17 @@ struct FocusIntentionSetView: View {
             Text("What do you want to accomplish? \n Select your goals")
           
             VStack {
-                HStack {
-                    Text("1.")
-                    TextField("Hi", text: $goalOne)
-                        .foregroundColor(.black)
-                        .frame(height: 50)
-                        .background(.clear)
-                        .padding(.horizontal)
+                
+                ForEach(Array(textFieldArray.enumerated()), id: \.1) { index, row in
+                    HStack {
+                        Text("\(index + 1)")
+                        row
+                    }
+                    .padding(.horizontal)
                 }
-                .padding(.horizontal)
-                HStack {
-                    Text("2.")
-                    TextField("Hi 2", text: $goalOne)
-                        .foregroundColor(.black)
-                        .frame(height: 50)
-                        .background(.clear)
-                        .padding(.horizontal)
-                }
-                .padding(.horizontal)
                 
                 PrimaryButton(title: "Add Another Goal") {
-                    
+                    addTextField()
                 }
             }
             
@@ -62,9 +56,7 @@ struct FocusIntentionSetView: View {
     FocusIntentionSetView()
 }
 
-func addTextField() {
-    
-}
+
 
 
 
