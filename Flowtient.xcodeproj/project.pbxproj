@@ -19,6 +19,7 @@
 		F67893D72BA49A9800ACA13F /* IntentionIconCircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67893D62BA49A9800ACA13F /* IntentionIconCircleButton.swift */; };
 		F67893D92BA51CB300ACA13F /* AppPermissionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67893D82BA51CB300ACA13F /* AppPermissionsView.swift */; };
 		F67894012BA5CBAD00ACA13F /* IntentionTextFieldRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67894002BA5CBAD00ACA13F /* IntentionTextFieldRow.swift */; };
+		F67894042BA7A7FD00ACA13F /* AppPermissionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67894032BA7A7FD00ACA13F /* AppPermissionsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		F67893D62BA49A9800ACA13F /* IntentionIconCircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentionIconCircleButton.swift; sourceTree = "<group>"; };
 		F67893D82BA51CB300ACA13F /* AppPermissionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPermissionsView.swift; sourceTree = "<group>"; };
 		F67894002BA5CBAD00ACA13F /* IntentionTextFieldRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentionTextFieldRow.swift; sourceTree = "<group>"; };
+		F67894032BA7A7FD00ACA13F /* AppPermissionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPermissionsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 		F67893B22BA3BC3200ACA13F /* Flowtient */ = {
 			isa = PBXGroup;
 			children = (
+				F67894022BA79B4300ACA13F /* Models */,
 				F67893D42BA4968100ACA13F /* ViewModels */,
 				F67893CF2BA480C300ACA13F /* Views */,
 				F67893CA2BA46DCE00ACA13F /* Services */,
@@ -127,8 +130,16 @@
 		F67893D42BA4968100ACA13F /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				F67894032BA7A7FD00ACA13F /* AppPermissionsViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		F67894022BA79B4300ACA13F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,6 +217,7 @@
 				F67893D32BA48DC200ACA13F /* FocusIntentionSetView.swift in Sources */,
 				F67894012BA5CBAD00ACA13F /* IntentionTextFieldRow.swift in Sources */,
 				F67893B62BA3BC3200ACA13F /* ContentView.swift in Sources */,
+				F67894042BA7A7FD00ACA13F /* AppPermissionsViewModel.swift in Sources */,
 				F67893C62BA3BDEE00ACA13F /* PrimaryButton.swift in Sources */,
 				F67893D12BA480DD00ACA13F /* FocusTimeSetView.swift in Sources */,
 				F67893C82BA446F900ACA13F /* HomeView.swift in Sources */,
