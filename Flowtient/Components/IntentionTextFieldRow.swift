@@ -17,6 +17,7 @@ struct IntentionTextFieldRow: View, Identifiable {
             .frame(height: 50)
             .background(.clear)
             .padding(.horizontal)
+            
     }
 }
 

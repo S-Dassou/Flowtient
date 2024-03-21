@@ -6,9 +6,11 @@
 //
 
 import SwiftUI
+import FamilyControls
 
 @main
 struct FlowtientApp: App {
+    let center = AuthorizationCenter.shared
     var body: some Scene {
         WindowGroup {
             
@@ -21,7 +23,15 @@ struct FlowtientApp: App {
                     .tag(0)
                 
             }
-            
+            .onAppear(perform: {
+                Task {
+                    do {
+                        try await center.requestAuthorization(for: .individual)
+                    } catch {
+                        print("Failed authorization with error \(error)")
+                    }
+                }
+            })
         }
     }
 }

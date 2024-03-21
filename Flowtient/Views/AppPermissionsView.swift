@@ -23,8 +23,6 @@ struct AppPermissionsView: View {
             Text("Choose which apps you'd like to block")
             Button("select apps") {
                 isPresented = true
-                
-               // print("--------\(viewModel.selectionToDiscourage)")
             }
             .familyActivityPicker(isPresented: $isPresented, selection: $viewModel.selectionToDiscourage)
         }

@@ -61,5 +61,9 @@ class AppPermissionsViewModel: ObservableObject {
     func removeRestrictions() {
             store.shield.applications = nil
         }
+    
+    func intervalDidStart() {
+        
+    }
 }
 

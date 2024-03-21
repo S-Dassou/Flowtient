@@ -27,7 +27,7 @@ struct ContentView: View {
             }
         }
         .fullScreenCover(isPresented: $navigateToFocusMode, content: {
-            /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Content@*/Text("Placeholder")/*@END_MENU_TOKEN@*/
+            FocusTimeSetView()
         })
     }
 }
