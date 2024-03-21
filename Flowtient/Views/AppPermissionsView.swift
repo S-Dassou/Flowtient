@@ -19,18 +19,19 @@ struct AppPermissionsView: View {
     
     
     var body: some View {
-        Text("Choose which apps you'd like to block")
-        Button("select apps") {
-            isPresented = true
-            
-            print("--------\(viewModel.selectionToDiscourage)")
+        VStack {
+            Text("Choose which apps you'd like to block")
+            Button("select apps") {
+                isPresented = true
+                
+               // print("--------\(viewModel.selectionToDiscourage)")
+            }
+            .familyActivityPicker(isPresented: $isPresented, selection: $viewModel.selectionToDiscourage)
         }
-        .familyActivityPicker(isPresented: $isPresented, selection: $viewModel.selectionToDiscourage)
-//        .onChange(of: $viewModel.selectionToDiscourage) { _ in
-//            viewModel.setShieldRestrictions()
-//        }
-        
-        
+        .onChange(of: viewModel.selectionToDiscourage) {
+            viewModel.setShieldRestrictions()
+            print("\(viewModel.selectionToDiscourage)")
+        }
     }
 }
 
