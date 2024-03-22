@@ -37,6 +37,7 @@
 		F67893D82BA51CB300ACA13F /* AppPermissionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPermissionsView.swift; sourceTree = "<group>"; };
 		F67894002BA5CBAD00ACA13F /* IntentionTextFieldRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentionTextFieldRow.swift; sourceTree = "<group>"; };
 		F67894032BA7A7FD00ACA13F /* AppPermissionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPermissionsViewModel.swift; sourceTree = "<group>"; };
+		F678940E2BAD080000ACA13F /* Flowtient.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Flowtient.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +70,7 @@
 		F67893B22BA3BC3200ACA13F /* Flowtient */ = {
 			isa = PBXGroup;
 			children = (
+				F678940E2BAD080000ACA13F /* Flowtient.entitlements */,
 				F67894022BA79B4300ACA13F /* Models */,
 				F67893D42BA4968100ACA13F /* ViewModels */,
 				F67893CF2BA480C300ACA13F /* Views */,
@@ -353,6 +355,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Flowtient/Flowtient.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Flowtient/Preview Content\"";
@@ -381,6 +384,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Flowtient/Flowtient.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Flowtient/Preview Content\"";

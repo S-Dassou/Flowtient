@@ -23,17 +23,24 @@ struct FocusIntentionSetView: View {
           
             VStack {
                 
-                ForEach(Array(textFieldArray.enumerated()), id: \.1) { index, row in
+                ForEach(Array(textFieldArray.prefix(3).enumerated()), id: \.1) { index, row in
                     HStack {
                         Text("\(index + 1)")
                         row
                     }
                     .padding(.horizontal)
                 }
-                
-                PrimaryButton(title: "Add Another Goal") {
-                    addTextField()
+                if textFieldArray.count >= 3 {
+                    PrimaryButton(title: "Add Another Goal") {
+                        //show warning message
+                    }
+                } else {
+                    PrimaryButton(title: "Add Another Goal") {
+                        addTextField()
+                    }
                 }
+                
+                
             }
             
             
@@ -42,9 +49,13 @@ struct FocusIntentionSetView: View {
             VStack {
                 HStack(spacing: 50) {
                     IntentionIconCircleButton(imageName: "briefcase", title: "Work")
-                    IntentionIconCircleButton(imageName: "person", title: "iOS")
-                    IntentionIconCircleButton(imageName: "lock.display", title: "Computer")
+                    IntentionIconCircleButton(imageName: "person", title: "rest")
+                    IntentionIconCircleButton(imageName: "lock.display", title: "play")
                 }
+                PrimaryButton(title: "Create a new tag") {
+                    //load new view for new tags
+                }
+                .padding(.top, 20)
             }
             .padding(.top, 30)
             Spacer()
