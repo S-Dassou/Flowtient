@@ -6,11 +6,15 @@
 //
 
 import SwiftUI
+import FamilyControls
 
 struct FocusIntentionSetView: View {
     @State var goalOne: String = ""
     @State var goalTwo: String = ""
     @State var textFieldArray: [IntentionTextFieldRow] = [IntentionTextFieldRow()]
+    @State var navigateToAppPermissionsView = false
+    
+    
     
     func addTextField() {
         textFieldArray.append(IntentionTextFieldRow())
@@ -59,6 +63,13 @@ struct FocusIntentionSetView: View {
             }
             .padding(.top, 30)
             Spacer()
+            PrimaryButton(title: "Next") {
+                navigateToAppPermissionsView = true
+            }
+        }
+        .navigationDestination(isPresented: $navigateToAppPermissionsView) {
+            //nav to view
+            FocusAppSelectionView()
         }
     }
 }

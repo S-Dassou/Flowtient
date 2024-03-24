@@ -10,13 +10,10 @@ import FamilyControls
 import DeviceActivity
 import ManagedSettings
 
-struct AppPermissionsView: View {
+struct FocusAppSelectionView: View {
     @State var isPresented = false
-    @State var selection = FamilyActivitySelection()
-    
-    @StateObject var viewModel: FocusSessionViewModel
-    
-    
+    @StateObject var viewModel = FocusAppSelectionViewModel()
+ //   @ObservedObject var focusSessionViewModel: FocusSessionViewModel
     
     var body: some View {
         VStack {
@@ -30,6 +27,7 @@ struct AppPermissionsView: View {
                 //start monitoring session
                 //go to home page
                 //load up active session bar in home page and disable start session button
+            //    focusSessionViewModel.focusTimeHour
                 viewModel.startMonitoring()
                 
             }
@@ -43,5 +41,5 @@ struct AppPermissionsView: View {
 }
 
 #Preview {
-    AppPermissionsView(viewModel: FocusSessionViewModel(selectionToDiscourage: FamilyActivitySelection()))
+    FocusAppSelectionView()
 }

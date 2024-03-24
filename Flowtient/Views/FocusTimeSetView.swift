@@ -15,31 +15,34 @@ import SwiftUI
 
 struct FocusTimeSetView: View {
     
-    @State var timeSelected: CGFloat = 0.0
-    @State var navigateToIntentView = false
+    @StateObject var viewModel = FocusTimeSetViewModel()
+    @ObservedObject var focusSessionViewModel: FocusSessionViewModel
     
     var body: some View {
-        VStack {
-            Text("T I M E")
-                .padding(.top, 40)
-            Text("Your Most Precious Commodity")
-            Text("Select How Long You Want To Focus For")
-                .padding(.top, 20)
-            Spacer()
-            CircularSlider()
-            Spacer()
-            PrimaryButton(title: "Next") {
-                navigateToIntentView = true
+        NavigationStack {
+            VStack {
+                Text("T I M E")
+                    .padding(.top, 40)
+                Text("Your Most Precious Commodity")
+                Text("Select How Long You Want To Focus For")
+                    .padding(.top, 20)
+                Spacer()
+                CircularSlider()
+                Spacer()
+                PrimaryButton(title: "Next") {
+                    print("next button tapped")
+                    viewModel.navigateToIntentView = true
+                }
             }
+            .navigationDestination(isPresented: $viewModel.navigateToIntentView) {
+                FocusIntentionSetView()
         }
-        .navigationDestination(isPresented: $navigateToIntentView) {
-            FocusIntentionSetView()
         }
     }
 }
 
 #Preview {
-    FocusTimeSetView()
+    FocusTimeSetView(focusSessionViewModel: FocusSessionViewModel())
 }
 
 struct CircularSlider: View {

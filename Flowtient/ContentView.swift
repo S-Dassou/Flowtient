@@ -10,8 +10,9 @@ import SwiftUI
 struct ContentView: View {
     
     @State var navigateToFocusMode = false
-    
+    @StateObject var focusSessionViewModel = FocusSessionViewModel()
     var body: some View {
+        
         VStack {
             Image(systemName: "timer")
                 .font(.system(size: 30))
@@ -27,7 +28,7 @@ struct ContentView: View {
             }
         }
         .fullScreenCover(isPresented: $navigateToFocusMode, content: {
-            FocusTimeSetView()
+            FocusTimeSetView(focusSessionViewModel: focusSessionViewModel)
         })
     }
 }
