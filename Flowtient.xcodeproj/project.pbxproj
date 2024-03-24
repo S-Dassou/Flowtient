@@ -19,7 +19,9 @@
 		F67893D72BA49A9800ACA13F /* IntentionIconCircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67893D62BA49A9800ACA13F /* IntentionIconCircleButton.swift */; };
 		F67893D92BA51CB300ACA13F /* AppPermissionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67893D82BA51CB300ACA13F /* AppPermissionsView.swift */; };
 		F67894012BA5CBAD00ACA13F /* IntentionTextFieldRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67894002BA5CBAD00ACA13F /* IntentionTextFieldRow.swift */; };
-		F67894042BA7A7FD00ACA13F /* AppPermissionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67894032BA7A7FD00ACA13F /* AppPermissionsViewModel.swift */; };
+		F67894042BA7A7FD00ACA13F /* FocusSessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67894032BA7A7FD00ACA13F /* FocusSessionViewModel.swift */; };
+		F6F92B992BAE50E0005CC497 /* DeviceActivityMonitorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F92B982BAE50E0005CC497 /* DeviceActivityMonitorExtension.swift */; };
+		F6F92B9C2BAE7671005CC497 /* DeviceActivityNameExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F92B9B2BAE7671005CC497 /* DeviceActivityNameExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,8 +38,10 @@
 		F67893D62BA49A9800ACA13F /* IntentionIconCircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentionIconCircleButton.swift; sourceTree = "<group>"; };
 		F67893D82BA51CB300ACA13F /* AppPermissionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPermissionsView.swift; sourceTree = "<group>"; };
 		F67894002BA5CBAD00ACA13F /* IntentionTextFieldRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentionTextFieldRow.swift; sourceTree = "<group>"; };
-		F67894032BA7A7FD00ACA13F /* AppPermissionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPermissionsViewModel.swift; sourceTree = "<group>"; };
+		F67894032BA7A7FD00ACA13F /* FocusSessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSessionViewModel.swift; sourceTree = "<group>"; };
 		F678940E2BAD080000ACA13F /* Flowtient.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Flowtient.entitlements; sourceTree = "<group>"; };
+		F6F92B982BAE50E0005CC497 /* DeviceActivityMonitorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceActivityMonitorExtension.swift; sourceTree = "<group>"; };
+		F6F92B9B2BAE7671005CC497 /* DeviceActivityNameExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceActivityNameExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +81,9 @@
 				F67893CA2BA46DCE00ACA13F /* Services */,
 				F67893C42BA3BDCE00ACA13F /* Components */,
 				F67893C32BA3BC7500ACA13F /* Auth */,
-				F67893B32BA3BC3200ACA13F /* FlowtientApp.swift */,
+				F6F92B9A2BAE50E5005CC497 /* Extensions */,
 				F67893B52BA3BC3200ACA13F /* ContentView.swift */,
+				F67893B32BA3BC3200ACA13F /* FlowtientApp.swift */,
 				F67893B72BA3BC3500ACA13F /* Assets.xcassets */,
 				F67893B92BA3BC3500ACA13F /* Preview Content */,
 				F67893C72BA446F900ACA13F /* HomeView.swift */,
@@ -132,7 +137,7 @@
 		F67893D42BA4968100ACA13F /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				F67894032BA7A7FD00ACA13F /* AppPermissionsViewModel.swift */,
+				F67894032BA7A7FD00ACA13F /* FocusSessionViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -142,6 +147,15 @@
 			children = (
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		F6F92B9A2BAE50E5005CC497 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F6F92B982BAE50E0005CC497 /* DeviceActivityMonitorExtension.swift */,
+				F6F92B9B2BAE7671005CC497 /* DeviceActivityNameExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,11 +229,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F67893D92BA51CB300ACA13F /* AppPermissionsView.swift in Sources */,
+				F6F92B992BAE50E0005CC497 /* DeviceActivityMonitorExtension.swift in Sources */,
+				F6F92B9C2BAE7671005CC497 /* DeviceActivityNameExtension.swift in Sources */,
 				F67893C22BA3BC7100ACA13F /* Login.swift in Sources */,
 				F67893D32BA48DC200ACA13F /* FocusIntentionSetView.swift in Sources */,
 				F67894012BA5CBAD00ACA13F /* IntentionTextFieldRow.swift in Sources */,
 				F67893B62BA3BC3200ACA13F /* ContentView.swift in Sources */,
-				F67894042BA7A7FD00ACA13F /* AppPermissionsViewModel.swift in Sources */,
+				F67894042BA7A7FD00ACA13F /* FocusSessionViewModel.swift in Sources */,
 				F67893C62BA3BDEE00ACA13F /* PrimaryButton.swift in Sources */,
 				F67893D12BA480DD00ACA13F /* FocusTimeSetView.swift in Sources */,
 				F67893C82BA446F900ACA13F /* HomeView.swift in Sources */,

@@ -9,8 +9,9 @@ import Foundation
 import SwiftUI
 import FamilyControls
 import ManagedSettings
+import DeviceActivity
 
-class AppPermissionsViewModel: ObservableObject {
+class FocusSessionViewModel: ObservableObject {
 
     @Published var selectionToDiscourage = FamilyActivitySelection()
     var store = ManagedSettingsStore()
@@ -23,12 +24,29 @@ class AppPermissionsViewModel: ObservableObject {
     }
     
     func setShieldRestrictions() {
+        saveSelection(selection: selectionToDiscourage)
         let applications = self.selectionToDiscourage
         if applications.applicationTokens.isEmpty {
             print("empty applications list")
         }
         store.shield.applications = applications.applicationTokens.isEmpty ? nil : applications.applicationTokens
         store.shield.applicationCategories = applications.categoryTokens.isEmpty ? nil :  ShieldSettings.ActivityCategoryPolicy.specific(applications.categoryTokens)
+    }
+    
+    func startMonitoring() {
+        let schedule = DeviceActivitySchedule(
+            intervalStart: DateComponents(hour: 0, minute: 0),
+            intervalEnd: DateComponents(hour: 23, minute: 59),
+            repeats: true
+        )
+
+        let center = DeviceActivityCenter()
+        
+        do {
+            try center.startMonitoring(.daily, during: schedule)
+        } catch {
+            print("Error starting monitoring: \(error.localizedDescription)")
+        }
     }
     
     func saveSelection(selection: FamilyActivitySelection) {

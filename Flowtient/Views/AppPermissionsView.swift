@@ -14,7 +14,7 @@ struct AppPermissionsView: View {
     @State var isPresented = false
     @State var selection = FamilyActivitySelection()
     
-    @StateObject var viewModel: AppPermissionsViewModel
+    @StateObject var viewModel: FocusSessionViewModel
     
     
     
@@ -25,14 +25,23 @@ struct AppPermissionsView: View {
                 isPresented = true
             }
             .familyActivityPicker(isPresented: $isPresented, selection: $viewModel.selectionToDiscourage)
+            
+            PrimaryButton(title: "Start Session") {
+                //start monitoring session
+                //go to home page
+                //load up active session bar in home page and disable start session button
+                viewModel.startMonitoring()
+                
+            }
         }
         .onChange(of: viewModel.selectionToDiscourage) {
             viewModel.setShieldRestrictions()
+            viewModel.saveSelection(selection: viewModel.selectionToDiscourage)
             print("\(viewModel.selectionToDiscourage)")
         }
     }
 }
 
 #Preview {
-    AppPermissionsView(viewModel: AppPermissionsViewModel(selectionToDiscourage: FamilyActivitySelection()))
+    AppPermissionsView(viewModel: FocusSessionViewModel(selectionToDiscourage: FamilyActivitySelection()))
 }
