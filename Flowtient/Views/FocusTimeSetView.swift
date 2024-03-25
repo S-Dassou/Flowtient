@@ -17,7 +17,7 @@ struct FocusTimeSetView: View {
     
     @StateObject var viewModel = FocusTimeSetViewModel()
     @ObservedObject var focusSessionViewModel: FocusSessionViewModel
-    
+
     var body: some View {
         NavigationStack {
             VStack {
@@ -27,7 +27,7 @@ struct FocusTimeSetView: View {
                 Text("Select How Long You Want To Focus For")
                     .padding(.top, 20)
                 Spacer()
-                CircularSlider()
+                CircularSlider(sliderValue: $viewModel.sliderValue)
                 Spacer()
                 PrimaryButton(title: "Next") {
                     print("next button tapped")
@@ -47,15 +47,24 @@ struct FocusTimeSetView: View {
 
 struct CircularSlider: View {
     
-    @State private var sliderValue: Double = 0
+    @Binding var sliderValue: Int
     private let sliderRange = 0.0...241.0
+    
+    var displayTime: String {
+        let totalTimeInMinutes = sliderValue
+        let hours = Int(totalTimeInMinutes) / 60
+        let minutes = Int(totalTimeInMinutes) % 60
+        let seconds = Int(totalTimeInMinutes) * 60
+        
+        return String(format: "%02ih %02im", hours, minutes)
+    }
     
     var body: some View {
         ZStack {
             Circle()
                 .stroke(Color.gray, lineWidth: 20)
             Circle()
-                .trim(from: 0, to: CGFloat(sliderValue / 241))
+                .trim(from: 0, to: CGFloat(Double(sliderValue) / 241))
                 .stroke(Color.blue, lineWidth: 20)
                 .rotationEffect(.degrees(-90))
             
@@ -63,9 +72,9 @@ struct CircularSlider: View {
                 .fill(Color.yellow)
                 .frame(width: 30, height: 30)
                 .offset(y: -150)
-                .rotationEffect(.degrees(sliderValue * 1.5))
+                .rotationEffect(.degrees(Double(sliderValue) * 1.5))
             
-            Text("\(Int(sliderValue))")
+            Text(displayTime)
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 
@@ -73,11 +82,21 @@ struct CircularSlider: View {
         .frame(width: 300, height: 300)
         .gesture(
         DragGesture(minimumDistance: 0)
+//            .onChanged({ value in
+//                let vector = CGVector(dx: value.location.x - 150, dy: value.location.y - 150)
+//                let angle = atan2(vector.dy, vector.dx) + .pi / 2
+//                let value = angle >= 0 ? angle : angle + 2 * .pi
+//                sliderValue = Int(max(sliderRange.lowerBound, min(sliderRange.upperBound, Double(value) * 241 / (2 * .pi))))
+//            })
             .onChanged({ value in
                 let vector = CGVector(dx: value.location.x - 150, dy: value.location.y - 150)
                 let angle = atan2(vector.dy, vector.dx) + .pi / 2
-                let value = angle >= 0 ? angle : angle + 2 * .pi
-                sliderValue = max(sliderRange.lowerBound, min(sliderRange.upperBound, Double(value) * 241 / (2 * .pi)))
+                let angleValue = angle >= 0 ? angle : angle + 2 * .pi
+                let newValue = Int(max(sliderRange.lowerBound, min(sliderRange.upperBound, Double(angleValue) * 241 / (2 * .pi))))
+                if sliderValue != newValue {
+                    sliderValue = newValue
+                    print("Slider value updated to \(sliderValue)")
+                }
             })
         )
     }

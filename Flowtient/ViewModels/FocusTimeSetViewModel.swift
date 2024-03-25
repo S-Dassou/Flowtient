@@ -10,4 +10,5 @@ import Foundation
 class FocusTimeSetViewModel: ObservableObject {
     @Published var timeSelected: CGFloat = 0.0
     @Published var navigateToIntentView = false
+    @Published var sliderValue: Int = 0
 }
