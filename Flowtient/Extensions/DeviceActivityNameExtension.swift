@@ -9,7 +9,7 @@ import Foundation
 import DeviceActivity
 
 extension DeviceActivityName {
-    static let daily = Self("daily")
+    static let activity = Self("activity")
 }
 
 

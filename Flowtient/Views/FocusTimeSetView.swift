@@ -27,7 +27,7 @@ struct FocusTimeSetView: View {
                 Text("Select How Long You Want To Focus For")
                     .padding(.top, 20)
                 Spacer()
-                CircularSlider(sliderValue: $viewModel.sliderValue)
+                CircularSlider(sliderValue: $focusSessionViewModel.sliderValue)
                 Spacer()
                 PrimaryButton(title: "Next") {
                     print("next button tapped")
@@ -35,7 +35,7 @@ struct FocusTimeSetView: View {
                 }
             }
             .navigationDestination(isPresented: $viewModel.navigateToIntentView) {
-                FocusIntentionSetView()
+                FocusIntentionSetView(focusSessionViewModel: focusSessionViewModel)
         }
         }
     }

@@ -17,21 +17,28 @@ class FocusAppSelectionViewModel: ObservableObject {
     private let decoder = PropertyListDecoder()
     private let userDefaultsKey = "ScreenTimeSelection"
     
-    func startMonitoring() {
-        let schedule = DeviceActivitySchedule(
-            intervalStart: DateComponents(hour: 0, minute: 0),
-            intervalEnd: DateComponents(hour: 23, minute: 59),
-            repeats: true
-        )
-
-        let center = DeviceActivityCenter()
-        
-        do {
-            try center.startMonitoring(.daily, during: schedule)
-        } catch {
-            print("Error starting monitoring: \(error.localizedDescription)")
-        }
-    }
+//    func startMonitoring() {
+//        
+//        let currentDateTime = Date()
+//        let formatter = DateFormatter()
+//        formatter.timeStyle = .short
+//        print(formatter.string(from: currentDateTime))
+//        
+//
+//        let schedule = DeviceActivitySchedule(
+//            intervalStart: DateComponents(hour: 0, minute: 0),
+//            intervalEnd: DateComponents(hour: 23, minute: 59),
+//            repeats: true
+//        )
+//
+//        let center = DeviceActivityCenter()
+//        
+//        do {
+//            try center.startMonitoring(.daily, during: schedule)
+//        } catch {
+//            print("Error starting monitoring: \(error.localizedDescription)")
+//        }
+//    }
     
     func setShieldRestrictions() {
         saveSelection(selection: selectionToDiscourage)

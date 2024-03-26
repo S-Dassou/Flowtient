@@ -11,6 +11,7 @@ import FamilyControls
 struct FocusIntentionSetView: View {
     
     @StateObject var viewModel = FocusIntentionSetViewModel()
+    @ObservedObject var focusSessionViewModel: FocusSessionViewModel
     
     var body: some View {
         VStack(alignment: .center) {
@@ -80,13 +81,13 @@ struct FocusIntentionSetView: View {
         }
         .navigationDestination(isPresented: $viewModel.navigateToAppPermissionsView) {
             //nav to view
-            FocusAppSelectionView()
+            FocusAppSelectionView(focusSessionViewModel: focusSessionViewModel)
         }
     }
 }
 
 #Preview {
-    FocusIntentionSetView()
+    FocusIntentionSetView(focusSessionViewModel: FocusSessionViewModel())
 }
 
 

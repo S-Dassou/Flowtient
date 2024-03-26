@@ -13,7 +13,7 @@ struct IntentionTextFieldRow: View, Identifiable {
     
     var body: some View {
         TextField("Hi", text: $goal)
-            .foregroundColor(.black)
+            .foregroundColor(.white)
             .frame(height: 50)
             .background(.clear)
             .padding(.horizontal)

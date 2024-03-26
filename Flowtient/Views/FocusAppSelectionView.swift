@@ -13,7 +13,7 @@ import ManagedSettings
 struct FocusAppSelectionView: View {
     @State var isPresented = false
     @StateObject var viewModel = FocusAppSelectionViewModel()
- //   @ObservedObject var focusSessionViewModel: FocusSessionViewModel
+    @ObservedObject var focusSessionViewModel: FocusSessionViewModel
     
     var body: some View {
         VStack {
@@ -28,7 +28,7 @@ struct FocusAppSelectionView: View {
                 //go to home page
                 //load up active session bar in home page and disable start session button
             //    focusSessionViewModel.focusTimeHour
-                viewModel.startMonitoring()
+                focusSessionViewModel.startMonitoring()
                 
             }
         }
@@ -41,5 +41,5 @@ struct FocusAppSelectionView: View {
 }
 
 #Preview {
-    FocusAppSelectionView()
+    FocusAppSelectionView(focusSessionViewModel: FocusSessionViewModel())
 }
