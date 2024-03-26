@@ -11,11 +11,13 @@ struct IntentionIconCircleButton: View {
     let intentionTag: IntentionTag
     var circleDimension: CGFloat = (UIScreen.main.bounds.width - 150) / 3
     @State var isSelected = false
+    var onSelectionChanged: (Bool) -> Void
     
     var body: some View {
         
         Button(action: {
             isSelected.toggle()
+            onSelectionChanged(isSelected)
         }, label: {
             VStack(spacing: 10) {
                 ZStack {
@@ -47,5 +49,5 @@ struct IntentionIconCircleButton: View {
 }
 
 #Preview {
-    IntentionIconCircleButton(intentionTag: IntentionTag(id: "Default3", title: "Hi", icon: "person"))
+    IntentionIconCircleButton(intentionTag: IntentionTag(id: "Default3", title: "Hi", icon: "person"), onSelectionChanged: { _ in })
 }

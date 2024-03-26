@@ -22,12 +22,13 @@ class FocusIntentionSetViewModel: ObservableObject {
         textFieldArray.append(IntentionTextFieldRow())
     }
     
-    func selectIntentionTag() {
-        
+    func addTag(_ tag: IntentionTag) {
+        if !selectedIntentionTags.contains(where: { $0.id == tag.id }) {
+            selectedIntentionTags.append(tag)
+        }
     }
     
-    func addIntentionTag() {
-        //to do
+    func removeTag(_ tag: IntentionTag) {
+        selectedIntentionTags.removeAll { $0.id == tag.id }
     }
-    
 }

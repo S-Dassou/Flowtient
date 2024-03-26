@@ -60,7 +60,13 @@ struct FocusIntentionSetView: View {
             VStack {
                 HStack(spacing: 50) {
                     ForEach(viewModel.intentionTags) { tag in
-                        IntentionIconCircleButton(intentionTag: tag)
+                        IntentionIconCircleButton(intentionTag: tag, onSelectionChanged: { isSelected in
+                            if isSelected {
+                                viewModel.addTag(tag)
+                            } else {
+                                viewModel.removeTag(tag)
+                            }
+                        })
                     }
                 }
    
