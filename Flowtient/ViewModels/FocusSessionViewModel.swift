@@ -34,17 +34,6 @@ class FocusSessionViewModel: ObservableObject {
 //            store.shield.applications = nil
 //        }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     func intervalDidStart() {
         
     }

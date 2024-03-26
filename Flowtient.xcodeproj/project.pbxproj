@@ -22,6 +22,9 @@
 		F67894042BA7A7FD00ACA13F /* FocusSessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67894032BA7A7FD00ACA13F /* FocusSessionViewModel.swift */; };
 		F68E6EB72BB0686200754259 /* FocusTimeSetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68E6EB62BB0686200754259 /* FocusTimeSetViewModel.swift */; };
 		F68E6EB92BB06C6E00754259 /* FocusAppSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68E6EB82BB06C6E00754259 /* FocusAppSelectionViewModel.swift */; };
+		F68E6EF92BB2876600754259 /* FocusIntentionSetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68E6EF82BB2876600754259 /* FocusIntentionSetViewModel.swift */; };
+		F68E6EFB2BB2D08900754259 /* IntentionTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68E6EFA2BB2D08900754259 /* IntentionTag.swift */; };
+		F68E6EFD2BB2D4DB00754259 /* CreateNewTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68E6EFC2BB2D4DB00754259 /* CreateNewTagView.swift */; };
 		F6F92B992BAE50E0005CC497 /* DeviceActivityMonitorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F92B982BAE50E0005CC497 /* DeviceActivityMonitorExtension.swift */; };
 		F6F92B9C2BAE7671005CC497 /* DeviceActivityNameExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F92B9B2BAE7671005CC497 /* DeviceActivityNameExtension.swift */; };
 /* End PBXBuildFile section */
@@ -44,6 +47,9 @@
 		F678940E2BAD080000ACA13F /* Flowtient.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Flowtient.entitlements; sourceTree = "<group>"; };
 		F68E6EB62BB0686200754259 /* FocusTimeSetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusTimeSetViewModel.swift; sourceTree = "<group>"; };
 		F68E6EB82BB06C6E00754259 /* FocusAppSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusAppSelectionViewModel.swift; sourceTree = "<group>"; };
+		F68E6EF82BB2876600754259 /* FocusIntentionSetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusIntentionSetViewModel.swift; sourceTree = "<group>"; };
+		F68E6EFA2BB2D08900754259 /* IntentionTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentionTag.swift; sourceTree = "<group>"; };
+		F68E6EFC2BB2D4DB00754259 /* CreateNewTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewTagView.swift; sourceTree = "<group>"; };
 		F6F92B982BAE50E0005CC497 /* DeviceActivityMonitorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceActivityMonitorExtension.swift; sourceTree = "<group>"; };
 		F6F92B9B2BAE7671005CC497 /* DeviceActivityNameExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceActivityNameExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,6 +140,7 @@
 				F67893D02BA480DD00ACA13F /* FocusTimeSetView.swift */,
 				F67893D22BA48DC200ACA13F /* FocusIntentionSetView.swift */,
 				F67893D82BA51CB300ACA13F /* FocusAppSelectionView.swift */,
+				F68E6EFC2BB2D4DB00754259 /* CreateNewTagView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -144,6 +151,7 @@
 				F67894032BA7A7FD00ACA13F /* FocusSessionViewModel.swift */,
 				F68E6EB62BB0686200754259 /* FocusTimeSetViewModel.swift */,
 				F68E6EB82BB06C6E00754259 /* FocusAppSelectionViewModel.swift */,
+				F68E6EF82BB2876600754259 /* FocusIntentionSetViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -151,6 +159,7 @@
 		F67894022BA79B4300ACA13F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F68E6EFA2BB2D08900754259 /* IntentionTag.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -240,12 +249,15 @@
 				F6F92B9C2BAE7671005CC497 /* DeviceActivityNameExtension.swift in Sources */,
 				F67893C22BA3BC7100ACA13F /* Login.swift in Sources */,
 				F67893D32BA48DC200ACA13F /* FocusIntentionSetView.swift in Sources */,
+				F68E6EF92BB2876600754259 /* FocusIntentionSetViewModel.swift in Sources */,
 				F67894012BA5CBAD00ACA13F /* IntentionTextFieldRow.swift in Sources */,
 				F67893B62BA3BC3200ACA13F /* ContentView.swift in Sources */,
 				F67894042BA7A7FD00ACA13F /* FocusSessionViewModel.swift in Sources */,
 				F67893C62BA3BDEE00ACA13F /* PrimaryButton.swift in Sources */,
 				F67893D12BA480DD00ACA13F /* FocusTimeSetView.swift in Sources */,
+				F68E6EFD2BB2D4DB00754259 /* CreateNewTagView.swift in Sources */,
 				F67893C82BA446F900ACA13F /* HomeView.swift in Sources */,
+				F68E6EFB2BB2D08900754259 /* IntentionTag.swift in Sources */,
 				F68E6EB72BB0686200754259 /* FocusTimeSetViewModel.swift in Sources */,
 				F67893B42BA3BC3200ACA13F /* FlowtientApp.swift in Sources */,
 				F67893D72BA49A9800ACA13F /* IntentionIconCircleButton.swift in Sources */,

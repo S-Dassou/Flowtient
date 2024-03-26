@@ -9,65 +9,70 @@ import SwiftUI
 import FamilyControls
 
 struct FocusIntentionSetView: View {
-    @State var goalOne: String = ""
-    @State var goalTwo: String = ""
-    @State var textFieldArray: [IntentionTextFieldRow] = [IntentionTextFieldRow()]
-    @State var navigateToAppPermissionsView = false
     
-    
-    
-    func addTextField() {
-        textFieldArray.append(IntentionTextFieldRow())
-    }
+    @StateObject var viewModel = FocusIntentionSetViewModel()
     
     var body: some View {
         VStack(alignment: .center) {
             Text("I N T E N T I O N")
-            Text("What do you want to accomplish? \n Select your goals")
+            Text("What do you want to accomplish? \n Write your goals")
           
             VStack {
-                
-                ForEach(Array(textFieldArray.prefix(3).enumerated()), id: \.1) { index, row in
+                ForEach(Array(viewModel.textFieldArray.prefix(2).enumerated()), id: \.1) { index, row in
                     HStack {
                         Text("\(index + 1)")
                         row
                     }
                     .padding(.horizontal)
                 }
-                if textFieldArray.count >= 3 {
+                if viewModel.textFieldArray.count >= 2 {
                     PrimaryButton(title: "Add Another Goal") {
                         //show warning message
                     }
                 } else {
                     PrimaryButton(title: "Add Another Goal") {
-                        addTextField()
+                        viewModel.addTextField()
                     }
                 }
-                
-                
             }
-            
-            
-            Text("Tag your Focus Session")
+            HStack {
+                Button {
+                    //edit all tags
+                } label: {
+                    Image(systemName: "ellipsis.circle")
+                        .font(.system(size: 30))
+                        .foregroundStyle(Color.gray)
+                }
+                VStack {
+                    Text("Tag your Focus Session")
+                    Text("Choose up to 3")
+                }
+                Button {
+                    //go to create new tag view
+                } label: {
+                    Image(systemName: "plus.circle")
+                        .font(.system(size: 30))
+                        .foregroundStyle(Color.gray)
+                }
+
+            }
                 .padding(.top, 40)
             VStack {
                 HStack(spacing: 50) {
-                    IntentionIconCircleButton(imageName: "briefcase", title: "Work")
-                    IntentionIconCircleButton(imageName: "person", title: "rest")
-                    IntentionIconCircleButton(imageName: "lock.display", title: "play")
+                    ForEach(viewModel.intentionTags) { tag in
+                        IntentionIconCircleButton(intentionTag: tag)
+                    }
                 }
-                PrimaryButton(title: "Create a new tag") {
-                    //load new view for new tags
-                }
-                .padding(.top, 20)
+   
+               
             }
             .padding(.top, 30)
             Spacer()
             PrimaryButton(title: "Next") {
-                navigateToAppPermissionsView = true
+                viewModel.navigateToAppPermissionsView = true
             }
         }
-        .navigationDestination(isPresented: $navigateToAppPermissionsView) {
+        .navigationDestination(isPresented: $viewModel.navigateToAppPermissionsView) {
             //nav to view
             FocusAppSelectionView()
         }

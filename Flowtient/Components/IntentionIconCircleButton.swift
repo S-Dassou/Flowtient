@@ -8,11 +8,9 @@
 import SwiftUI
 
 struct IntentionIconCircleButton: View {
-    
+    let intentionTag: IntentionTag
     var circleDimension: CGFloat = (UIScreen.main.bounds.width - 150) / 3
     @State var isSelected = false
-    var imageName: String
-    var title: String
     
     var body: some View {
         
@@ -28,7 +26,7 @@ struct IntentionIconCircleButton: View {
                         .trim(from: 0, to: 1)
                         .stroke(isSelected ? Color.orange : Color.black, style: StrokeStyle(lineWidth: 10, lineCap: .round))
                         .frame(width: circleDimension, height: circleDimension)
-                    Image(systemName: imageName)
+                    Image(systemName: intentionTag.icon)
                         .font(.system(size: 30))
                         .fontWeight(.bold)
                         .foregroundColor(.black)
@@ -36,7 +34,7 @@ struct IntentionIconCircleButton: View {
                 }
                 .rotationEffect(.init(degrees: -90))
                 HStack {
-                    Text(title)
+                    Text(intentionTag.title)
                         .textCase(.uppercase)
                         .font(.system(size: 19))
                         .fontWeight(.semibold)
@@ -49,5 +47,5 @@ struct IntentionIconCircleButton: View {
 }
 
 #Preview {
-    IntentionIconCircleButton(imageName: "briefcase", title: "Work")
+    IntentionIconCircleButton(intentionTag: IntentionTag(id: "Default3", title: "Hi", icon: "person"))
 }
