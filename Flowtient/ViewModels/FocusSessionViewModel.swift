@@ -14,52 +14,52 @@ import DeviceActivity
 class FocusSessionViewModel: ObservableObject {
     
     @Published var sliderValue: Int = 0 //total time in minutes
-    
-    func startMonitoring() {
-        
-        
-        
-        let currentDateTime = Date() //todays date
-        let currentDateTimeInterval = currentDateTime.timeIntervalSince1970 //todays date as time interval
-        let currentDateTimeIntervalAsInt = Int(currentDateTimeInterval) //todays date as time interval int - to add to total focus time
-        
-        
-        let sliderValueInSeconds = (sliderValue * 60) //slider value (total time in mins) * 60
-        let totalFocusTime = sliderValueInSeconds + currentDateTimeIntervalAsInt
-        let totalFocusTimeDate = Date(timeIntervalSince1970: TimeInterval(totalFocusTime)) //total focus ending time as date object
-        
-        let calendar = Calendar.current
-        let dateCommonentsStart = calendar.dateComponents([.hour, .minute], from: currentDateTime)
-        let dateComponentsEnd = calendar.dateComponents([.hour, .minute], from: totalFocusTimeDate)
-        
-        
-
-//        let schedule = DeviceActivitySchedule(
-//            intervalStart: DateComponents(hour: dateCommonentsStart.hour, minute: dateCommonentsStart.minute),
-//            intervalEnd: DateComponents(hour: dateComponentsEnd.hour, minute: dateComponentsEnd.minute),
-//            repeats: true
-//        )
-        
-        let schedule = DeviceActivitySchedule(intervalStart: Calendar.current.dateComponents([.hour, .minute], from: currentDateTime),
-                                               intervalEnd: Calendar.current.dateComponents([.hour, .minute], from: totalFocusTimeDate),
-                                               repeats: false
-                                               )
-
-        let center = DeviceActivityCenter()
-        
-        do {
-            try center.startMonitoring(.activity, during: schedule)
-        } catch {
-            print("Error starting monitoring: \(error.localizedDescription)")
-        }
-        
-        
-    }
+    var timer: Timer?
     
     func removeRestrictions() {
         let store = ManagedSettingsStore()
         store.shield.applications = nil
     }
+    
+    func startMonitoring() {
+        
+        let currentDateTime = Date() //todays date
+        // Assuming 'sliderValue' is an integer representing the time chosen by the user in minutes
+        let sliderValueInMinutes = sliderValue // The slider value in minutes
+        
+        if let totalFocusEndTime = Calendar.current.date(byAdding: .minute, value: sliderValueInMinutes, to: currentDateTime) {
+            // 'totalFocusEndTime' is the end time of the focus period
+            
+            // Extract the start and end date components for the schedule
+            let dateComponentsStart = Calendar.current.dateComponents([.hour, .minute], from: currentDateTime)
+            let dateComponentsEnd = Calendar.current.dateComponents([.hour, .minute], from: totalFocusEndTime)
+            
+            print("Interval Start: \(dateComponentsStart.hour!):\(dateComponentsStart.minute!)")
+            print("Interval End: \(dateComponentsEnd.hour!):\(dateComponentsEnd.minute!)")
+            
+            // Create the schedule using the start and end date components
+            let schedule = DeviceActivitySchedule(
+                intervalStart: dateComponentsStart,
+                intervalEnd: dateComponentsEnd,
+                repeats: false
+            )
+            
+            let center = DeviceActivityCenter()
+            
+            do {
+                try center.startMonitoring(.activity, during: schedule)
+                // Schedule the timer to stop shielding apps at the end of the focus session
+                timer?.invalidate() // Invalidate any existing timer
+                timer = Timer.scheduledTimer(withTimeInterval: TimeInterval(sliderValueInMinutes * 60), repeats: false) { [weak self] _ in
+                    self?.removeRestrictions()
+                }
+            } catch {
+                print("Error starting monitoring: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    
     
 //    func loadSelection() {
 //            let defaults = UserDefaults.standard

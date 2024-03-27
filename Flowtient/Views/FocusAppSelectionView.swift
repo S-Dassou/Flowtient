@@ -27,8 +27,9 @@ struct FocusAppSelectionView: View {
                 //start monitoring session
                 //go to home page
                 //load up active session bar in home page and disable start session button
-            //    focusSessionViewModel.focusTimeHour
+            
                 focusSessionViewModel.startMonitoring()
+                
                 
             }
         }

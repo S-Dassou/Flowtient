@@ -13,6 +13,7 @@ import FamilyControls
 class DeviceActivityMonitorExtension: DeviceActivityMonitor {
     let store = ManagedSettingsStore()
     let focusAppSelectionViewModel = FocusAppSelectionViewModel()
+    
     override func intervalDidStart(for activity: DeviceActivityName) {
         super.intervalDidStart(for: activity)
         
@@ -22,6 +23,7 @@ class DeviceActivityMonitorExtension: DeviceActivityMonitor {
     
     override func intervalDidEnd(for activity: DeviceActivityName) {
         super.intervalDidEnd(for: activity)
+        
         store.shield.applications = nil
         store.shield.applicationCategories = nil
         store.shield.webDomainCategories = nil
