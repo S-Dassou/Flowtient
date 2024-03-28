@@ -14,6 +14,7 @@ struct FocusAppSelectionView: View {
     @State var isPresented = false
     @StateObject var viewModel = FocusAppSelectionViewModel()
     @ObservedObject var focusSessionViewModel: FocusSessionViewModel
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         VStack {
@@ -29,13 +30,13 @@ struct FocusAppSelectionView: View {
                 //load up active session bar in home page and disable start session button
             
                 focusSessionViewModel.startMonitoring()
-                
-                
+                dismiss()
             }
         }
         .onChange(of: viewModel.selectionToDiscourage) {
-            viewModel.setShieldRestrictions()
             viewModel.saveSelection(selection: viewModel.selectionToDiscourage)
+            viewModel.setShieldRestrictions()
+            
             print("\(viewModel.selectionToDiscourage)")
         }
     }

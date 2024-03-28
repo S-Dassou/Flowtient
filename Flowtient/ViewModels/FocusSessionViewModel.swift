@@ -16,7 +16,8 @@ class FocusSessionViewModel: ObservableObject {
     @Published var sliderValue: Int = 0 //total time in minutes
     var timer: Timer?
     
-    func removeRestrictions() {
+    func removeRestrictions(_ activities: [DeviceActivityName] = []) {
+        
         let store = ManagedSettingsStore()
         store.shield.applications = nil
     }
@@ -48,11 +49,12 @@ class FocusSessionViewModel: ObservableObject {
             
             do {
                 try center.startMonitoring(.activity, during: schedule)
-                // Schedule the timer to stop shielding apps at the end of the focus session
-                timer?.invalidate() // Invalidate any existing timer
-                timer = Timer.scheduledTimer(withTimeInterval: TimeInterval(sliderValueInMinutes * 60), repeats: false) { [weak self] _ in
-                    self?.removeRestrictions()
-                }
+//                // Schedule the timer to stop shielding apps at the end of the focus session
+//                timer?.invalidate() // Invalidate any existing timer
+//                timer = Timer.scheduledTimer(withTimeInterval: TimeInterval(sliderValueInMinutes * 60), repeats: false) { [weak self] _ in
+//                    self?.removeRestrictions()
+                    center.stopMonitoring()
+//                }
             } catch {
                 print("Error starting monitoring: \(error.localizedDescription)")
             }
