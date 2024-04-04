@@ -16,7 +16,7 @@ class DeviceActivityMonitorExtension: DeviceActivityMonitor {
     
     override func intervalDidStart(for activity: DeviceActivityName) {
         super.intervalDidStart(for: activity)
-        
+        store.clearAllSettings()
         let applications = focusAppSelectionViewModel.selectionToDiscourage.applications
          
     }

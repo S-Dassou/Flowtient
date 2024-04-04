@@ -30,7 +30,6 @@ class FocusSessionViewModel: ObservableObject {
         
         if let totalFocusEndTime = Calendar.current.date(byAdding: .minute, value: sliderValueInMinutes, to: currentDateTime) {
             // 'totalFocusEndTime' is the end time of the focus period
-            
             // Extract the start and end date components for the schedule
             let dateComponentsStart = Calendar.current.dateComponents([.hour, .minute], from: currentDateTime)
             let dateComponentsEnd = Calendar.current.dateComponents([.hour, .minute], from: totalFocusEndTime)
@@ -45,19 +44,30 @@ class FocusSessionViewModel: ObservableObject {
                 repeats: false
             )
             
+//            let scheduleTest = DeviceActivitySchedule(
+//                intervalStart: Calendar.current.dateComponents([.hour, .minute], from: currentDateTime),
+//                intervalEnd: Calendar.current.dateComponents([.hour, .minute], from: totalFocusEndTime),
+//                repeats: false)
+            
             let center = DeviceActivityCenter()
             
-            do {
-                try center.startMonitoring(.activity, during: schedule)
+            center.stopMonitoring()
+            print("-----------------------")
+            print("center stopped monitoring")
+            print("-----------------------")
+//
+//            do {
+//                try center.startMonitoring(.activity, during: schedule)
 //                // Schedule the timer to stop shielding apps at the end of the focus session
 //                timer?.invalidate() // Invalidate any existing timer
+//                print("previous timer invalidated")
 //                timer = Timer.scheduledTimer(withTimeInterval: TimeInterval(sliderValueInMinutes * 60), repeats: false) { [weak self] _ in
 //                    self?.removeRestrictions()
-                    center.stopMonitoring()
+//                    center.stopMonitoring()
 //                }
-            } catch {
-                print("Error starting monitoring: \(error.localizedDescription)")
-            }
+//            } catch {
+//                print("Error starting monitoring: \(error.localizedDescription)")
+//            }
         }
     }
     

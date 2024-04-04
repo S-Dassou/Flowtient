@@ -17,28 +17,28 @@ class FocusAppSelectionViewModel: ObservableObject {
     private let decoder = PropertyListDecoder()
     private let userDefaultsKey = "ScreenTimeSelection"
     
-//    func startMonitoring() {
-//        
-//        let currentDateTime = Date()
-//        let formatter = DateFormatter()
-//        formatter.timeStyle = .short
-//        print(formatter.string(from: currentDateTime))
-//        
-//
-//        let schedule = DeviceActivitySchedule(
-//            intervalStart: DateComponents(hour: 0, minute: 0),
-//            intervalEnd: DateComponents(hour: 23, minute: 59),
-//            repeats: true
-//        )
-//
-//        let center = DeviceActivityCenter()
-//        
-//        do {
-//            try center.startMonitoring(.daily, during: schedule)
-//        } catch {
-//            print("Error starting monitoring: \(error.localizedDescription)")
-//        }
-//    }
+    //    func startMonitoring() {
+    //
+    //        let currentDateTime = Date()
+    //        let formatter = DateFormatter()
+    //        formatter.timeStyle = .short
+    //        print(formatter.string(from: currentDateTime))
+    //
+    //
+    //        let schedule = DeviceActivitySchedule(
+    //            intervalStart: DateComponents(hour: 0, minute: 0),
+    //            intervalEnd: DateComponents(hour: 23, minute: 59),
+    //            repeats: true
+    //        )
+    //
+    //        let center = DeviceActivityCenter()
+    //
+    //        do {
+    //            try center.startMonitoring(.daily, during: schedule)
+    //        } catch {
+    //            print("Error starting monitoring: \(error.localizedDescription)")
+    //        }
+    //    }
     
     func setShieldRestrictions() {
         saveSelection(selection: selectionToDiscourage)
@@ -51,18 +51,30 @@ class FocusAppSelectionViewModel: ObservableObject {
     }
     
     func saveSelection(selection: FamilyActivitySelection) {
+        
+        let defaults = UserDefaults.standard
+        do {
+            let data = try encoder.encode(selection)
+            defaults.set(data, forKey: userDefaultsKey)
+            //print("Save Selection / Applications Saved")
             
-            let defaults = UserDefaults.standard
-            do {
-                let data = try encoder.encode(selection)
-                defaults.set(data, forKey: userDefaultsKey)
-                //print("Save Selection / Applications Saved")
-                
-                store.shield.applications = selectionToDiscourage.applicationTokens.isEmpty ? nil : selectionToDiscourage.applicationTokens
-            } catch {
-                print("Failed to save selection: \(error)")
-            }
+            store.shield.applications = selectionToDiscourage.applicationTokens.isEmpty ? nil : selectionToDiscourage.applicationTokens
+        } catch {
+            print("Failed to save selection: \(error)")
         }
+    }
     
-   
+    func loadSelection() {
+        let defaults = UserDefaults.standard
+        guard let data = defaults.data(forKey: userDefaultsKey) else { return }
+        do {
+            selectionToDiscourage = try decoder.decode(FamilyActivitySelection.self, from: data)
+            //print("Load Selection / Applications Loaded")
+        } catch {
+            print("Failed to load selection: \(error)")
+        }
+        
+        store.shield.applications = selectionToDiscourage.applicationTokens.isEmpty ? nil : selectionToDiscourage.applicationTokens
+    }
+
 }
