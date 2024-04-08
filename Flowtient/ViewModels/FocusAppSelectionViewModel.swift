@@ -39,7 +39,7 @@ class FocusAppSelectionViewModel: ObservableObject {
     //            print("Error starting monitoring: \(error.localizedDescription)")
     //        }
     //    }
-    
+    //function that starts the shielding once app has been selected in picker
     func setShieldRestrictions() {
         saveSelection(selection: selectionToDiscourage)
         let applications = self.selectionToDiscourage
@@ -76,5 +76,4 @@ class FocusAppSelectionViewModel: ObservableObject {
         
         store.shield.applications = selectionToDiscourage.applicationTokens.isEmpty ? nil : selectionToDiscourage.applicationTokens
     }
-
 }

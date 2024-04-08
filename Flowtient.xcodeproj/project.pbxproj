@@ -152,8 +152,8 @@
 			children = (
 				F67894032BA7A7FD00ACA13F /* FocusSessionViewModel.swift */,
 				F68E6EB62BB0686200754259 /* FocusTimeSetViewModel.swift */,
-				F68E6EB82BB06C6E00754259 /* FocusAppSelectionViewModel.swift */,
 				F68E6EF82BB2876600754259 /* FocusIntentionSetViewModel.swift */,
+				F68E6EB82BB06C6E00754259 /* FocusAppSelectionViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
