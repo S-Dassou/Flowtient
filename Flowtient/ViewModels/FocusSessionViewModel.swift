@@ -19,10 +19,10 @@ class FocusSessionViewModel: ObservableObject {
     let schedule = DeviceActivitySchedule(
         intervalStart: DateComponents(hour: 0, minute: 0, second: 0),
         intervalEnd: DateComponents(hour: 23, minute: 59, second: 59),
-        repeats: true
+        repeats: false
     )
     
-    let center = DeviceActivityCenter()
+   // let center = DeviceActivityCenter()
     
     func removeRestrictions(_ activities: [DeviceActivityName] = []) {
         
@@ -31,17 +31,28 @@ class FocusSessionViewModel: ObservableObject {
     }
     
     func startMonitoringTest() {
-        let timeLimitInMinutes = sliderValue
-        let event = DeviceActivityEvent(applications: selectionToDiscourage.applicationTokens, categories: selectionToDiscourage.categoryTokens, webDomains: selectionToDiscourage.webDomainTokens, threshold: DateComponents(minute: timeLimitInMinutes))
+        let center = DeviceActivityCenter()
+        let sliderValueInMinutes = sliderValue
+        let currentDateTime = Date()
+        let totalFocusEndTime = Calendar.current.date(byAdding: .minute, value: sliderValueInMinutes, to: currentDateTime)!
         
-        center.stopMonitoring() //stops existing monitoring
-        let activity = DeviceActivityName("MyApp.ScreenTime") //refactor test
-        let eventName = DeviceActivityEvent.Name("MyApp.SomeEventName") //refactor test
+        let dateComponentsStart = Calendar.current.dateComponents([.hour, .minute], from: currentDateTime)
+        let dateComponentsEnd = Calendar.current.dateComponents([.hour, .minute], from: totalFocusEndTime)
         do {
-            try center.startMonitoring(activity, during: schedule, events: [eventName: event])
+            try center.startMonitoring(.activity, during: DeviceActivitySchedule(intervalStart: DateComponents(hour: dateComponentsStart.hour, minute: dateComponentsStart.minute), intervalEnd: DateComponents(hour: dateComponentsEnd.hour, minute: dateComponentsEnd.minute), repeats: false))
         } catch {
             print("error monitoring: \(error.localizedDescription)")
-            }
+        }
+        
+        
+        center.stopMonitoring() //stops existing monitoring
+        
+        
+//        do {
+//            try center.startMonitoring(activity, during: schedule, events: [eventName: event])
+//        } catch {
+//            print("error monitoring: \(error.localizedDescription)")
+//            }
     }
     
     func stopMonitoring() {
@@ -49,7 +60,7 @@ class FocusSessionViewModel: ObservableObject {
     }
     
     func startMonitoring() {
-        
+        let center = DeviceActivityCenter()
         let currentDateTime = Date() //todays date
         // Assuming 'sliderValue' is an integer representing the time chosen by the user in minutes
         let sliderValueInMinutes = sliderValue // The slider value in minutes
@@ -70,8 +81,6 @@ class FocusSessionViewModel: ObservableObject {
                 repeats: false
             )
             
-            let center = DeviceActivityCenter()
-            
             center.stopMonitoring()
             print("-----------------------")
             print("center stopped monitoring")
@@ -80,12 +89,12 @@ class FocusSessionViewModel: ObservableObject {
             do {
                 try center.startMonitoring(.activity, during: schedule)
                 // Schedule the timer to stop shielding apps at the end of the focus session
-                timer?.invalidate() // Invalidate any existing timer
-                print("previous timer invalidated")
-                timer = Timer.scheduledTimer(withTimeInterval: TimeInterval(sliderValueInMinutes * 60), repeats: false) { [weak self] _ in
-                    self?.removeRestrictions()
-                    //center.stopMonitoring()
-                }
+//                timer?.invalidate() // Invalidate any existing timer
+//                print("previous timer invalidated")
+//                timer = Timer.scheduledTimer(withTimeInterval: TimeInterval(sliderValueInMinutes * 60), repeats: false) { [weak self] _ in
+//                    self?.removeRestrictions()
+//                    //center.stopMonitoring()
+//                }
             } catch {
                 print("Error starting monitoring: \(error.localizedDescription)")
             }

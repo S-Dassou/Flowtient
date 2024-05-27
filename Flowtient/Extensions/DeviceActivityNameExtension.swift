@@ -9,7 +9,7 @@ import Foundation
 import DeviceActivity
 
 extension DeviceActivityName {
-    static let activity = Self("Flowtient.activity")
+    static let activity = Self("activity")
 }
 
 

@@ -35,7 +35,7 @@ struct FocusAppSelectionView: View {
         }
         .onChange(of: viewModel.selectionToDiscourage) {
             viewModel.saveSelection(selection: viewModel.selectionToDiscourage)
-            viewModel.setShieldRestrictions()
+           // viewModel.setShieldRestrictions()
             
             print("\(viewModel.selectionToDiscourage)")
         }

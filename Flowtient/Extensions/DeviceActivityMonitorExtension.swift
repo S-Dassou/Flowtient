@@ -12,25 +12,32 @@ import FamilyControls
 
 //able to shield apps without device activity monitor extension
 class DeviceActivityMonitorExtension: DeviceActivityMonitor {
-    let store = ManagedSettingsStore()
+    
     let focusAppSelectionViewModel = FocusAppSelectionViewModel()
     
-//    override func intervalDidStart(for activity: DeviceActivityName) {
-//        super.intervalDidStart(for: activity)
-//        store.clearAllSettings()
-//        let applications = focusAppSelectionViewModel.selectionToDiscourage.applications
-//         
-//    }
-//    
-//    override func intervalDidEnd(for activity: DeviceActivityName) {
-//        super.intervalDidEnd(for: activity) //ends when actvity reaches its threshold 
-//        
-//        store.shield.applications = nil
-//        store.shield.applicationCategories = nil
-//        store.shield.webDomainCategories = nil
-//        store.shield.webDomains = nil
-//        store.clearAllSettings()
-//    }
+    override func intervalDidStart(for activity: DeviceActivityName) {
+        print("--- INTERVAL START SHIELDING ---")
+        let store = ManagedSettingsStore()
+        super.intervalDidStart(for: activity)
+        store.clearAllSettings()
+        let applications = focusAppSelectionViewModel.selectionToDiscourage.applications
+        store.shield.applications = focusAppSelectionViewModel.selectionToDiscourage.applicationTokens
+//        store.shield.applicationCategories = focusAppSelectionViewModel.selectionToDiscourage.categories
+        store.shield.webDomains = focusAppSelectionViewModel.selectionToDiscourage.webDomainTokens
+        print("--- INTERVAL STARTED SHIELDING ---")
+    }
+    
+    override func intervalDidEnd(for activity: DeviceActivityName) {
+        let store = ManagedSettingsStore()
+        super.intervalDidEnd(for: activity) //ends when actvity reaches its threshold
+        print("--- INTERVAL FINISHED SHIELDING ---")
+        store.clearAllSettings()
+        store.shield.applications = nil
+        store.shield.applicationCategories = nil
+        store.shield.webDomainCategories = nil
+        store.shield.webDomains = nil
+        print("--- INTERVAL FINITO SHIELDING ---")
+    }
 //    
 //    override func eventDidReachThreshold(_ event: DeviceActivityEvent.Name, activity: DeviceActivityName) {
 //        super.eventDidReachThreshold(event, activity: activity)
