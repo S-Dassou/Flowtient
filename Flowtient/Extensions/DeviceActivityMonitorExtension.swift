@@ -15,17 +15,17 @@ class DeviceActivityMonitorExtension: DeviceActivityMonitor {
     
     let focusAppSelectionViewModel = FocusAppSelectionViewModel()
     
-    override func intervalDidStart(for activity: DeviceActivityName) {
-        print("--- INTERVAL START SHIELDING ---")
-        let store = ManagedSettingsStore()
-        super.intervalDidStart(for: activity)
-        store.clearAllSettings()
-        let applications = focusAppSelectionViewModel.selectionToDiscourage.applications
-        store.shield.applications = focusAppSelectionViewModel.selectionToDiscourage.applicationTokens
-//        store.shield.applicationCategories = focusAppSelectionViewModel.selectionToDiscourage.categories
-        store.shield.webDomains = focusAppSelectionViewModel.selectionToDiscourage.webDomainTokens
-        print("--- INTERVAL STARTED SHIELDING ---")
-    }
+//    override func intervalDidStart(for activity: DeviceActivityName) {
+//        print("--- INTERVAL START SHIELDING ---")
+//        let store = ManagedSettingsStore()
+//        super.intervalDidStart(for: activity)
+//        store.clearAllSettings()
+//        let applications = focusAppSelectionViewModel.selectionToDiscourage.applications
+//        store.shield.applications = focusAppSelectionViewModel.selectionToDiscourage.applicationTokens
+////        store.shield.applicationCategories = focusAppSelectionViewModel.selectionToDiscourage.categories
+//        store.shield.webDomains = focusAppSelectionViewModel.selectionToDiscourage.webDomainTokens
+//        print("--- INTERVAL STARTED SHIELDING ---")
+//    }
     
     override func intervalDidEnd(for activity: DeviceActivityName) {
         let store = ManagedSettingsStore()

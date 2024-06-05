@@ -16,44 +16,12 @@ class FocusSessionViewModel: ObservableObject {
     @Published var sliderValue: Int = 0 //total time in minutes
     var timer: Timer?
     
-    let schedule = DeviceActivitySchedule(
-        intervalStart: DateComponents(hour: 0, minute: 0, second: 0),
-        intervalEnd: DateComponents(hour: 23, minute: 59, second: 59),
-        repeats: false
-    )
-    
-   // let center = DeviceActivityCenter()
-    
     func removeRestrictions(_ activities: [DeviceActivityName] = []) {
         
         let store = ManagedSettingsStore()
         store.shield.applications = nil
     }
-    
-    func startMonitoringTest() {
-        let center = DeviceActivityCenter()
-        let sliderValueInMinutes = sliderValue
-        let currentDateTime = Date()
-        let totalFocusEndTime = Calendar.current.date(byAdding: .minute, value: sliderValueInMinutes, to: currentDateTime)!
-        
-        let dateComponentsStart = Calendar.current.dateComponents([.hour, .minute], from: currentDateTime)
-        let dateComponentsEnd = Calendar.current.dateComponents([.hour, .minute], from: totalFocusEndTime)
-        do {
-            try center.startMonitoring(.activity, during: DeviceActivitySchedule(intervalStart: DateComponents(hour: dateComponentsStart.hour, minute: dateComponentsStart.minute), intervalEnd: DateComponents(hour: dateComponentsEnd.hour, minute: dateComponentsEnd.minute), repeats: false))
-        } catch {
-            print("error monitoring: \(error.localizedDescription)")
-        }
-        
-        
-        center.stopMonitoring() //stops existing monitoring
-        
-        
-//        do {
-//            try center.startMonitoring(activity, during: schedule, events: [eventName: event])
-//        } catch {
-//            print("error monitoring: \(error.localizedDescription)")
-//            }
-    }
+
     
     func stopMonitoring() {
         
@@ -88,6 +56,7 @@ class FocusSessionViewModel: ObservableObject {
 
             do {
                 try center.startMonitoring(.activity, during: schedule)
+                print("START monitoring")
                 // Schedule the timer to stop shielding apps at the end of the focus session
 //                timer?.invalidate() // Invalidate any existing timer
 //                print("previous timer invalidated")
@@ -112,10 +81,10 @@ class FocusSessionViewModel: ObservableObject {
 //            } catch {
 //                print("Failed to load selection: \(error)")
 //            }
-//            
+//
 //            store.shield.applications = selectionToDiscourage.applicationTokens.isEmpty ? nil : selectionToDiscourage.applicationTokens
 //        }
-//    
+//
 //    func removeRestrictions() {
 //            store.shield.applications = nil
 //        }

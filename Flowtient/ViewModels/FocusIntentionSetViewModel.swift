@@ -13,7 +13,7 @@ class FocusIntentionSetViewModel: ObservableObject {
     @Published var goalTwo: String = ""
     @Published var textFieldArray: [IntentionTextFieldRow] = [IntentionTextFieldRow()]
 //    @Published var intentionTags: [IntentionIconCircleButton] = [IntentionIconCircleButton(imageName: "person", title: "social"), IntentionIconCircleButton(imageName: "briefcase", title: "work"), IntentionIconCircleButton(imageName: "lock.display", title: "iOS")]
-//    
+//
     @Published var intentionTags: [IntentionTag] = IntentionTag.defaultIntentionTags //array of intention tags containing all selected/unselected tags (currently 3 defaults)
     @Published var selectedIntentionTags: [IntentionTag] = []
     @Published var navigateToAppPermissionsView = false
