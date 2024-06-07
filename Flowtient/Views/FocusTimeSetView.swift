@@ -17,7 +17,8 @@ struct FocusTimeSetView: View {
     
     @StateObject var viewModel = FocusTimeSetViewModel()
     @ObservedObject var focusSessionViewModel: FocusSessionViewModel
-
+    @ObservedObject var focusSessionNavigationViewModel: FocusSessionNavigationViewModel
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -31,18 +32,18 @@ struct FocusTimeSetView: View {
                 Spacer()
                 PrimaryButton(title: "Next") {
                     print("next button tapped")
-                    viewModel.navigateToIntentView = true
+                    focusSessionNavigationViewModel.navigateToIntentView = true
                 }
             }
-            .navigationDestination(isPresented: $viewModel.navigateToIntentView) {
-                FocusIntentionSetView(focusSessionViewModel: focusSessionViewModel)
-        }
+            .navigationDestination(isPresented: $focusSessionNavigationViewModel.navigateToIntentView) {
+                FocusIntentionSetView(focusSessionViewModel: focusSessionViewModel, focusSessionNavigationViewModel: focusSessionNavigationViewModel)
+            }
         }
     }
 }
 
 #Preview {
-    FocusTimeSetView(focusSessionViewModel: FocusSessionViewModel())
+    FocusTimeSetView(focusSessionViewModel: FocusSessionViewModel(), focusSessionNavigationViewModel: FocusSessionNavigationViewModel())
 }
 
 struct CircularSlider: View {
@@ -77,29 +78,21 @@ struct CircularSlider: View {
             Text(displayTime)
                 .font(.largeTitle)
                 .fontWeight(.bold)
-                
+            
         }
         .frame(width: 300, height: 300)
         .gesture(
-        DragGesture(minimumDistance: 0)
-//            .onChanged({ value in
-//                let vector = CGVector(dx: value.location.x - 150, dy: value.location.y - 150)
-//                let angle = atan2(vector.dy, vector.dx) + .pi / 2
-//                let value = angle >= 0 ? angle : angle + 2 * .pi
-//                sliderValue = Int(max(sliderRange.lowerBound, min(sliderRange.upperBound, Double(value) * 241 / (2 * .pi))))
-//            })
-            .onChanged({ value in
-                let vector = CGVector(dx: value.location.x - 150, dy: value.location.y - 150)
-                let angle = atan2(vector.dy, vector.dx) + .pi / 2
-                let angleValue = angle >= 0 ? angle : angle + 2 * .pi
-                let newValue = Int(max(sliderRange.lowerBound, min(sliderRange.upperBound, Double(angleValue) * 241 / (2 * .pi))))
-                if sliderValue != newValue {
-                    sliderValue = newValue
-                    print("Slider value updated to \(sliderValue)")
-                }
-            })
+            DragGesture(minimumDistance: 0)
+                .onChanged({ value in
+                    let vector = CGVector(dx: value.location.x - 150, dy: value.location.y - 150)
+                    let angle = atan2(vector.dy, vector.dx) + .pi / 2
+                    let angleValue = angle >= 0 ? angle : angle + 2 * .pi
+                    let newValue = Int(max(sliderRange.lowerBound, min(sliderRange.upperBound, Double(angleValue) * 241 / (2 * .pi))))
+                    if sliderValue != newValue {
+                        sliderValue = newValue
+                        print("Slider value updated to \(sliderValue)")
+                    }
+                })
         )
     }
-    
-    
 }

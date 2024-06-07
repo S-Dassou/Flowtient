@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var navigateToFocusMode = false
+    @StateObject var focusSessionNavigationViewModel = FocusSessionNavigationViewModel()
     @StateObject var focusSessionViewModel = FocusSessionViewModel()
     var body: some View {
         
@@ -24,11 +24,11 @@ struct ContentView: View {
             }
             
             PrimaryButton(title: "Start Focus Mode") {
-                navigateToFocusMode = true
+                focusSessionNavigationViewModel.navigateToFocusMode = true
             }
         }
-        .fullScreenCover(isPresented: $navigateToFocusMode, content: {
-            FocusTimeSetView(focusSessionViewModel: focusSessionViewModel)
+        .fullScreenCover(isPresented: $focusSessionNavigationViewModel.navigateToFocusMode, content: {
+            FocusTimeSetView(focusSessionViewModel: focusSessionViewModel, focusSessionNavigationViewModel: focusSessionNavigationViewModel)
         })
     }
 }

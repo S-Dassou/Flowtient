@@ -16,29 +16,7 @@ class FocusAppSelectionViewModel: ObservableObject {
     private let encoder = PropertyListEncoder()
     private let decoder = PropertyListDecoder()
     private let userDefaultsKey = "ScreenTimeSelection"
-    
-    //    func startMonitoring() {
-    //
-    //        let currentDateTime = Date()
-    //        let formatter = DateFormatter()
-    //        formatter.timeStyle = .short
-    //        print(formatter.string(from: currentDateTime))
-    //
-    //
-    //        let schedule = DeviceActivitySchedule(
-    //            intervalStart: DateComponents(hour: 0, minute: 0),
-    //            intervalEnd: DateComponents(hour: 23, minute: 59),
-    //            repeats: true
-    //        )
-    //
-    //        let center = DeviceActivityCenter()
-    //
-    //        do {
-    //            try center.startMonitoring(.daily, during: schedule)
-    //        } catch {
-    //            print("Error starting monitoring: \(error.localizedDescription)")
-    //        }
-    //    }
+
     //function that starts the shielding once app has been selected in picker
     func setShieldRestrictions() {
         saveSelection(selection: selectionToDiscourage)
@@ -46,8 +24,12 @@ class FocusAppSelectionViewModel: ObservableObject {
         if applications.applicationTokens.isEmpty {
             print("empty applications list")
         }
+        if applications.categoryTokens.isEmpty {
+            print("empty category tokens")
+        }
         store.shield.applications = applications.applicationTokens.isEmpty ? nil : applications.applicationTokens
-        store.shield.applicationCategories = applications.categoryTokens.isEmpty ? nil :  ShieldSettings.ActivityCategoryPolicy.specific(applications.categoryTokens)
+        store.shield.applicationCategories = .specific(applications.categoryTokens)
+//        store.shield.applicationCategories = applications.categoryTokens.isEmpty ? nil :  ShieldSettings.ActivityCategoryPolicy.specific(applications.categoryTokens)
     }
     
     func saveSelection(selection: FamilyActivitySelection) {
@@ -56,9 +38,11 @@ class FocusAppSelectionViewModel: ObservableObject {
         do {
             let data = try encoder.encode(selection)
             defaults.set(data, forKey: userDefaultsKey)
-            //print("Save Selection / Applications Saved")
             
             store.shield.applications = selectionToDiscourage.applicationTokens.isEmpty ? nil : selectionToDiscourage.applicationTokens
+            store.shield.applicationCategories = .specific(selectionToDiscourage.categoryTokens)
+            store.shield.webDomainCategories = .specific(selectionToDiscourage.categoryTokens)
+            
         } catch {
             print("Failed to save selection: \(error)")
         }

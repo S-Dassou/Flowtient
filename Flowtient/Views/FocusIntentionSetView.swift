@@ -12,6 +12,7 @@ struct FocusIntentionSetView: View {
     
     @StateObject var viewModel = FocusIntentionSetViewModel()
     @ObservedObject var focusSessionViewModel: FocusSessionViewModel
+    @ObservedObject var focusSessionNavigationViewModel: FocusSessionNavigationViewModel
     
     var body: some View {
         VStack(alignment: .center) {
@@ -76,18 +77,17 @@ struct FocusIntentionSetView: View {
             .padding(.top, 30)
             Spacer()
             PrimaryButton(title: "Next") {
-                viewModel.navigateToAppPermissionsView = true
+                focusSessionNavigationViewModel.navigateToAppPermissionsView = true
             }
         }
-        .navigationDestination(isPresented: $viewModel.navigateToAppPermissionsView) {
-            //nav to view
-            FocusAppSelectionView(focusSessionViewModel: focusSessionViewModel)
+        .navigationDestination(isPresented: $focusSessionNavigationViewModel.navigateToAppPermissionsView) {
+            FocusAppSelectionView(focusSessionViewModel: focusSessionViewModel, focusSessionNavigationViewModel: focusSessionNavigationViewModel)
         }
     }
 }
 
 #Preview {
-    FocusIntentionSetView(focusSessionViewModel: FocusSessionViewModel())
+    FocusIntentionSetView(focusSessionViewModel: FocusSessionViewModel(), focusSessionNavigationViewModel: FocusSessionNavigationViewModel())
 }
 
 

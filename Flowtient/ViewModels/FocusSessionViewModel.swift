@@ -17,14 +17,8 @@ class FocusSessionViewModel: ObservableObject {
     var timer: Timer?
     
     func removeRestrictions(_ activities: [DeviceActivityName] = []) {
-        
         let store = ManagedSettingsStore()
         store.shield.applications = nil
-    }
-
-    
-    func stopMonitoring() {
-        
     }
     
     func startMonitoring() {
@@ -57,40 +51,10 @@ class FocusSessionViewModel: ObservableObject {
             do {
                 try center.startMonitoring(.activity, during: schedule)
                 print("START monitoring")
-                // Schedule the timer to stop shielding apps at the end of the focus session
-//                timer?.invalidate() // Invalidate any existing timer
-//                print("previous timer invalidated")
-//                timer = Timer.scheduledTimer(withTimeInterval: TimeInterval(sliderValueInMinutes * 60), repeats: false) { [weak self] _ in
-//                    self?.removeRestrictions()
-//                    //center.stopMonitoring()
-//                }
             } catch {
                 print("Error starting monitoring: \(error.localizedDescription)")
             }
         }
-    }
-    
-    
-    
-//    func loadSelection() {
-//            let defaults = UserDefaults.standard
-//            guard let data = defaults.data(forKey: userDefaultsKey) else { return }
-//            do {
-//                selectionToDiscourage = try decoder.decode(FamilyActivitySelection.self, from: data)
-//                //print("Load Selection / Applications Loaded")
-//            } catch {
-//                print("Failed to load selection: \(error)")
-//            }
-//
-//            store.shield.applications = selectionToDiscourage.applicationTokens.isEmpty ? nil : selectionToDiscourage.applicationTokens
-//        }
-//
-//    func removeRestrictions() {
-//            store.shield.applications = nil
-//        }
-    
-    func intervalDidStart() {
-        
     }
 }
 

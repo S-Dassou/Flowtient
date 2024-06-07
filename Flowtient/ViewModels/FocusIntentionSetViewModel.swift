@@ -16,7 +16,7 @@ class FocusIntentionSetViewModel: ObservableObject {
 //
     @Published var intentionTags: [IntentionTag] = IntentionTag.defaultIntentionTags //array of intention tags containing all selected/unselected tags (currently 3 defaults)
     @Published var selectedIntentionTags: [IntentionTag] = []
-    @Published var navigateToAppPermissionsView = false
+    
     
     func addTextField() {
         textFieldArray.append(IntentionTextFieldRow())

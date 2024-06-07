@@ -14,6 +14,7 @@ struct FocusAppSelectionView: View {
     @State var isPresented = false
     @StateObject var viewModel = FocusAppSelectionViewModel()
     @ObservedObject var focusSessionViewModel: FocusSessionViewModel
+    @ObservedObject var focusSessionNavigationViewModel: FocusSessionNavigationViewModel
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
@@ -26,22 +27,19 @@ struct FocusAppSelectionView: View {
             
             PrimaryButton(title: "Start Session") {
                 //start monitoring session
-                //go to home page
+                //go to home page - dismiss all navigation stack
                 //load up active session bar in home page and disable start session button
-            
                 focusSessionViewModel.startMonitoring()
-                dismiss()
+                focusSessionNavigationViewModel.goBackToHomeView()
             }
         }
         .onChange(of: viewModel.selectionToDiscourage) {
             viewModel.saveSelection(selection: viewModel.selectionToDiscourage)
-           // viewModel.setShieldRestrictions()
-            
             print("\(viewModel.selectionToDiscourage)")
         }
     }
 }
 
 #Preview {
-    FocusAppSelectionView(focusSessionViewModel: FocusSessionViewModel())
+    FocusAppSelectionView(focusSessionViewModel: FocusSessionViewModel(), focusSessionNavigationViewModel: FocusSessionNavigationViewModel())
 }
