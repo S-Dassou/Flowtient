@@ -11,11 +11,14 @@ import FamilyControls
 @main
 struct FlowtientApp: App {
     let center = AuthorizationCenter.shared
+    @State var focusSessionManager = FocusSessionManager()
+    
     var body: some Scene {
         WindowGroup {
             
             TabView {
                 ContentView()
+                    .environment(focusSessionManager)
                     .tabItem {
                         Image(systemName: "house.fill")
                         Text("Home")

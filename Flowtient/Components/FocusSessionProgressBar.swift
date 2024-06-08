@@ -31,7 +31,6 @@ struct FocusSessionProgressBar: View {
         .padding(18)
         .background(Color.black.opacity(0.1))
         .cornerRadius(18)
-      //  .clipShape(RoundedRectangle(cornerRadius: 18))
     }
     
     func calcPercent() -> CGFloat {

@@ -15,7 +15,7 @@ struct FocusAppSelectionView: View {
     @StateObject var viewModel = FocusAppSelectionViewModel()
     @ObservedObject var focusSessionViewModel: FocusSessionViewModel
     @ObservedObject var focusSessionNavigationViewModel: FocusSessionNavigationViewModel
-    @Environment(\.dismiss) var dismiss
+    @Environment(FocusSessionManager.self) var focusSessionManager
     
     var body: some View {
         VStack {
@@ -31,6 +31,7 @@ struct FocusAppSelectionView: View {
                 //load up active session bar in home page and disable start session button
                 focusSessionViewModel.startMonitoring()
                 focusSessionNavigationViewModel.goBackToHomeView()
+                focusSessionManager.startSessionTimer()
             }
         }
         .onChange(of: viewModel.selectionToDiscourage) {
@@ -42,4 +43,5 @@ struct FocusAppSelectionView: View {
 
 #Preview {
     FocusAppSelectionView(focusSessionViewModel: FocusSessionViewModel(), focusSessionNavigationViewModel: FocusSessionNavigationViewModel())
+        .environment(FocusSessionManager())
 }

@@ -31,6 +31,7 @@
 		F68E6EFD2BB2D4DB00754259 /* CreateNewTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68E6EFC2BB2D4DB00754259 /* CreateNewTagView.swift */; };
 		F6A264C72C136C72004D3E2A /* FocusSessionNavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A264C62C136C72004D3E2A /* FocusSessionNavigationViewModel.swift */; };
 		F6A264C92C137358004D3E2A /* FocusSessionProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A264C82C137358004D3E2A /* FocusSessionProgressBar.swift */; };
+		F6A264CC2C145B77004D3E2A /* FocusSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A264CB2C145B77004D3E2A /* FocusSessionManager.swift */; };
 		F6F92B992BAE50E0005CC497 /* DeviceActivityMonitorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F92B982BAE50E0005CC497 /* DeviceActivityMonitorExtension.swift */; };
 		F6F92B9C2BAE7671005CC497 /* DeviceActivityNameExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F92B9B2BAE7671005CC497 /* DeviceActivityNameExtension.swift */; };
 /* End PBXBuildFile section */
@@ -88,6 +89,7 @@
 		F68E6EFC2BB2D4DB00754259 /* CreateNewTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewTagView.swift; sourceTree = "<group>"; };
 		F6A264C62C136C72004D3E2A /* FocusSessionNavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSessionNavigationViewModel.swift; sourceTree = "<group>"; };
 		F6A264C82C137358004D3E2A /* FocusSessionProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSessionProgressBar.swift; sourceTree = "<group>"; };
+		F6A264CB2C145B77004D3E2A /* FocusSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSessionManager.swift; sourceTree = "<group>"; };
 		F6F92B982BAE50E0005CC497 /* DeviceActivityMonitorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceActivityMonitorExtension.swift; sourceTree = "<group>"; };
 		F6F92B9B2BAE7671005CC497 /* DeviceActivityNameExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceActivityNameExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -152,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				F678940E2BAD080000ACA13F /* Flowtient.entitlements */,
+				F6A264CA2C145B3A004D3E2A /* Managers */,
 				F67894022BA79B4300ACA13F /* Models */,
 				F67893D42BA4968100ACA13F /* ViewModels */,
 				F67893CF2BA480C300ACA13F /* Views */,
@@ -232,6 +235,14 @@
 				F67C08902BB5115A0020751B /* FocusSessionModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		F6A264CA2C145B3A004D3E2A /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				F6A264CB2C145B77004D3E2A /* FocusSessionManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		F6F92B9A2BAE50E5005CC497 /* Extensions */ = {
@@ -368,6 +379,7 @@
 				F68E6EFD2BB2D4DB00754259 /* CreateNewTagView.swift in Sources */,
 				F67893C82BA446F900ACA13F /* HomeView.swift in Sources */,
 				F67C08912BB5115A0020751B /* FocusSessionModel.swift in Sources */,
+				F6A264CC2C145B77004D3E2A /* FocusSessionManager.swift in Sources */,
 				F68E6EFB2BB2D08900754259 /* IntentionTag.swift in Sources */,
 				F68E6EB72BB0686200754259 /* FocusTimeSetViewModel.swift in Sources */,
 				F67893B42BA3BC3200ACA13F /* FlowtientApp.swift in Sources */,

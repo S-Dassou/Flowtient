@@ -18,6 +18,7 @@ struct FocusTimeSetView: View {
     @StateObject var viewModel = FocusTimeSetViewModel()
     @ObservedObject var focusSessionViewModel: FocusSessionViewModel
     @ObservedObject var focusSessionNavigationViewModel: FocusSessionNavigationViewModel
+    @Environment(FocusSessionManager.self) var focusSessionManager
     
     var body: some View {
         NavigationStack {
@@ -32,6 +33,8 @@ struct FocusTimeSetView: View {
                 Spacer()
                 PrimaryButton(title: "Next") {
                     print("next button tapped")
+                    focusSessionManager.remainingTime = focusSessionViewModel.sliderValue * 60
+                    focusSessionManager.totalTime = focusSessionViewModel.sliderValue * 60
                     focusSessionNavigationViewModel.navigateToIntentView = true
                 }
             }
@@ -44,6 +47,7 @@ struct FocusTimeSetView: View {
 
 #Preview {
     FocusTimeSetView(focusSessionViewModel: FocusSessionViewModel(), focusSessionNavigationViewModel: FocusSessionNavigationViewModel())
+        .environment(FocusSessionManager())
 }
 
 struct CircularSlider: View {
