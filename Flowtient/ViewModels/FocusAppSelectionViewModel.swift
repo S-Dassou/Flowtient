@@ -29,7 +29,6 @@ class FocusAppSelectionViewModel: ObservableObject {
         }
         store.shield.applications = applications.applicationTokens.isEmpty ? nil : applications.applicationTokens
         store.shield.applicationCategories = .specific(applications.categoryTokens)
-//        store.shield.applicationCategories = applications.categoryTokens.isEmpty ? nil :  ShieldSettings.ActivityCategoryPolicy.specific(applications.categoryTokens)
     }
     
     func saveSelection(selection: FamilyActivitySelection) {

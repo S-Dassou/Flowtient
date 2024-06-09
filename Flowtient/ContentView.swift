@@ -35,19 +35,38 @@ struct ContentView: View {
             }
             
             //timer
-            if focusSessionManager.countdownTimer != nil {
+          //  if focusSessionManager.countdownTimer != nil {
+        
                 ZStack {
                     RoundedRectangle(cornerRadius: 10)
                         .fill(Color.gray.opacity(0.2))
-                        .frame(width: UIScreen.main.bounds.width / 1.3, height: UIScreen.main.bounds.height / 3)
-    
+                    
                     VStack {
-                        FocusSessionProgressBar(percent: $focusSessionManager.displayPercent)
+                        
                         Text(focusSessionManager.displayTime)
-                            .foregroundStyle(Color.black)
+                            .foregroundStyle(Color.white)
+                            .font(.system(size: 30, weight: .semibold))
+                            .padding()
+                        
+                        FocusSessionProgressBar(percent: $focusSessionManager.displayPercent)
+                            .padding()
+                        
+                        
+                        
+                        PrimaryButton(title: "End Focus Session") {
+                            /*
+                             - clear out managed settings store
+                             - invalidate timer
+                             */
+                            focusSessionViewModel.center.stopMonitoring()
+                            focusSessionManager.removeRestrictions()
+                            focusSessionManager.stopFocusSession()
+                        }
                     }
+                    //   }
                 }
-            }
+                .frame(width: UIScreen.main.bounds.width / 1.2, height: UIScreen.main.bounds.height / 3)
+            
         }
         .fullScreenCover(isPresented: $focusSessionNavigationViewModel.navigateToFocusMode, content: {
             FocusTimeSetView(focusSessionViewModel: focusSessionViewModel, focusSessionNavigationViewModel: focusSessionNavigationViewModel)

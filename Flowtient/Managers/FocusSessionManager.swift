@@ -7,6 +7,9 @@
 
 import Foundation
 import SwiftUI
+import FamilyControls
+import ManagedSettings
+import DeviceActivity
 
 @Observable
 class FocusSessionManager {
@@ -31,11 +34,25 @@ class FocusSessionManager {
             guard let strongSelf = self else { return }
             DispatchQueue.main.async {
                 strongSelf.remainingTime -= 1
-                strongSelf.displayPercent = CGFloat(strongSelf.remainingTime / strongSelf.totalTime)
+                strongSelf.displayPercent = CGFloat(strongSelf.totalTime - strongSelf.remainingTime) / CGFloat(strongSelf.totalTime)
                 if strongSelf.remainingTime <= 0 {
-                    strongSelf.countdownTimer?.invalidate()
+                    strongSelf.stopFocusSession()
                 }
             }
         }
+    }
+    
+    func stopFocusSession() {
+        countdownTimer?.invalidate()
+        remainingTime = 0
+        totalTime = 0
+    }
+    
+    func removeRestrictions(_ activities: [DeviceActivityName] = []) {
+        let store = ManagedSettingsStore()
+        store.shield.applications = nil
+        store.shield.applicationCategories = nil
+        store.shield.webDomainCategories = nil
+        store.shield.webDomains = nil
     }
 }

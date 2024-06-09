@@ -14,6 +14,7 @@ import DeviceActivity
 class FocusSessionViewModel: ObservableObject {
     @Published var selectionToDiscourage = FamilyActivitySelection() //refactor test
     @Published var sliderValue: Int = 0 //total time in minutes
+    let center = DeviceActivityCenter()
     var timer: Timer?
     
     func removeRestrictions(_ activities: [DeviceActivityName] = []) {
@@ -22,7 +23,6 @@ class FocusSessionViewModel: ObservableObject {
     }
     
     func startMonitoring() {
-        let center = DeviceActivityCenter()
         let currentDateTime = Date() //todays date
         // Assuming 'sliderValue' is an integer representing the time chosen by the user in minutes
         let sliderValueInMinutes = sliderValue // The slider value in minutes
