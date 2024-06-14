@@ -51,7 +51,13 @@ struct ContentView: View {
                         FocusSessionProgressBar(percent: $focusSessionManager.displayPercent)
                             .padding()
                         
-                        
+                        VStack {
+                            ForEach(focusSessionViewModel.intentions) { intention in
+                                List {
+                                    Text(intention.title)
+                                }
+                            }
+                        }
                         
                         PrimaryButton(title: "End Focus Session") {
                             /*
@@ -65,7 +71,7 @@ struct ContentView: View {
                     }
                     //   }
                 }
-                .frame(width: UIScreen.main.bounds.width / 1.2, height: UIScreen.main.bounds.height / 3)
+                .frame(width: UIScreen.main.bounds.width / 1.2)
             
         }
         .fullScreenCover(isPresented: $focusSessionNavigationViewModel.navigateToFocusMode, content: {

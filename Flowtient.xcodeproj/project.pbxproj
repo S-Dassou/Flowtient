@@ -32,6 +32,7 @@
 		F6A264C72C136C72004D3E2A /* FocusSessionNavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A264C62C136C72004D3E2A /* FocusSessionNavigationViewModel.swift */; };
 		F6A264C92C137358004D3E2A /* FocusSessionProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A264C82C137358004D3E2A /* FocusSessionProgressBar.swift */; };
 		F6A264CC2C145B77004D3E2A /* FocusSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A264CB2C145B77004D3E2A /* FocusSessionManager.swift */; };
+		F6A264CE2C170289004D3E2A /* IntentionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A264CD2C170289004D3E2A /* IntentionModel.swift */; };
 		F6F92B992BAE50E0005CC497 /* DeviceActivityMonitorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F92B982BAE50E0005CC497 /* DeviceActivityMonitorExtension.swift */; };
 		F6F92B9C2BAE7671005CC497 /* DeviceActivityNameExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F92B9B2BAE7671005CC497 /* DeviceActivityNameExtension.swift */; };
 /* End PBXBuildFile section */
@@ -90,6 +91,7 @@
 		F6A264C62C136C72004D3E2A /* FocusSessionNavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSessionNavigationViewModel.swift; sourceTree = "<group>"; };
 		F6A264C82C137358004D3E2A /* FocusSessionProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSessionProgressBar.swift; sourceTree = "<group>"; };
 		F6A264CB2C145B77004D3E2A /* FocusSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSessionManager.swift; sourceTree = "<group>"; };
+		F6A264CD2C170289004D3E2A /* IntentionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentionModel.swift; sourceTree = "<group>"; };
 		F6F92B982BAE50E0005CC497 /* DeviceActivityMonitorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceActivityMonitorExtension.swift; sourceTree = "<group>"; };
 		F6F92B9B2BAE7671005CC497 /* DeviceActivityNameExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceActivityNameExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -233,6 +235,7 @@
 			children = (
 				F68E6EFA2BB2D08900754259 /* IntentionTag.swift */,
 				F67C08902BB5115A0020751B /* FocusSessionModel.swift */,
+				F6A264CD2C170289004D3E2A /* IntentionModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				F67893C62BA3BDEE00ACA13F /* PrimaryButton.swift in Sources */,
 				F67893D12BA480DD00ACA13F /* FocusTimeSetView.swift in Sources */,
 				F68E6EFD2BB2D4DB00754259 /* CreateNewTagView.swift in Sources */,
+				F6A264CE2C170289004D3E2A /* IntentionModel.swift in Sources */,
 				F67893C82BA446F900ACA13F /* HomeView.swift in Sources */,
 				F67C08912BB5115A0020751B /* FocusSessionModel.swift in Sources */,
 				F6A264CC2C145B77004D3E2A /* FocusSessionManager.swift in Sources */,

@@ -77,6 +77,10 @@ struct FocusIntentionSetView: View {
             .padding(.top, 30)
             Spacer()
             PrimaryButton(title: "Next") {
+                focusSessionViewModel.intentions.removeAll()
+                for intentionTextField in viewModel.textFieldArray {
+                    focusSessionViewModel.intentions.append(IntentionModel(title: intentionTextField.goal))
+                }
                 focusSessionNavigationViewModel.navigateToAppPermissionsView = true
             }
         }
