@@ -10,6 +10,8 @@
 		F6187D4B2C0732A7007483C5 /* DeviceActivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6187D4A2C0732A7007483C5 /* DeviceActivity.framework */; };
 		F6187D4E2C0732A7007483C5 /* DeviceActivityMonitorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6187D4D2C0732A7007483C5 /* DeviceActivityMonitorExtension.swift */; };
 		F6187D532C0732A7007483C5 /* FlowtientDeviceActivityMonitor.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F6187D482C0732A7007483C5 /* FlowtientDeviceActivityMonitor.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F63071B22C1CED880003FFC9 /* ProgressRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63071B12C1CED880003FFC9 /* ProgressRing.swift */; };
+		F63071B42C1D005C0003FFC9 /* DayTimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63071B32C1D005C0003FFC9 /* DayTimerManager.swift */; };
 		F67893B42BA3BC3200ACA13F /* FlowtientApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67893B32BA3BC3200ACA13F /* FlowtientApp.swift */; };
 		F67893B62BA3BC3200ACA13F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67893B52BA3BC3200ACA13F /* ContentView.swift */; };
 		F67893B82BA3BC3500ACA13F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F67893B72BA3BC3500ACA13F /* Assets.xcassets */; };
@@ -67,6 +69,8 @@
 		F6187D4D2C0732A7007483C5 /* DeviceActivityMonitorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceActivityMonitorExtension.swift; sourceTree = "<group>"; };
 		F6187D4F2C0732A7007483C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F6187D502C0732A7007483C5 /* FlowtientDeviceActivityMonitor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FlowtientDeviceActivityMonitor.entitlements; sourceTree = "<group>"; };
+		F63071B12C1CED880003FFC9 /* ProgressRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressRing.swift; sourceTree = "<group>"; };
+		F63071B32C1D005C0003FFC9 /* DayTimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayTimerManager.swift; sourceTree = "<group>"; };
 		F67893B02BA3BC3200ACA13F /* Flowtient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flowtient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F67893B32BA3BC3200ACA13F /* FlowtientApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowtientApp.swift; sourceTree = "<group>"; };
 		F67893B52BA3BC3200ACA13F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -196,6 +200,7 @@
 				F67893D62BA49A9800ACA13F /* IntentionIconCircleButton.swift */,
 				F67894002BA5CBAD00ACA13F /* IntentionTextFieldRow.swift */,
 				F6A264C82C137358004D3E2A /* FocusSessionProgressBar.swift */,
+				F63071B12C1CED880003FFC9 /* ProgressRing.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -244,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				F6A264CB2C145B77004D3E2A /* FocusSessionManager.swift */,
+				F63071B32C1D005C0003FFC9 /* DayTimerManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -367,6 +373,7 @@
 			files = (
 				F6A264C72C136C72004D3E2A /* FocusSessionNavigationViewModel.swift in Sources */,
 				F67893D92BA51CB300ACA13F /* FocusAppSelectionView.swift in Sources */,
+				F63071B22C1CED880003FFC9 /* ProgressRing.swift in Sources */,
 				F6F92B992BAE50E0005CC497 /* DeviceActivityMonitorExtension.swift in Sources */,
 				F68E6EB92BB06C6E00754259 /* FocusAppSelectionViewModel.swift in Sources */,
 				F6F92B9C2BAE7671005CC497 /* DeviceActivityNameExtension.swift in Sources */,
@@ -384,6 +391,7 @@
 				F67893C82BA446F900ACA13F /* HomeView.swift in Sources */,
 				F67C08912BB5115A0020751B /* FocusSessionModel.swift in Sources */,
 				F6A264CC2C145B77004D3E2A /* FocusSessionManager.swift in Sources */,
+				F63071B42C1D005C0003FFC9 /* DayTimerManager.swift in Sources */,
 				F68E6EFB2BB2D08900754259 /* IntentionTag.swift in Sources */,
 				F68E6EB72BB0686200754259 /* FocusTimeSetViewModel.swift in Sources */,
 				F67893B42BA3BC3200ACA13F /* FlowtientApp.swift in Sources */,

@@ -13,22 +13,47 @@ struct ContentView: View {
      - Progress Bar
      - Button to end the focus session 
      */
-
+    
+    @StateObject var dayTimerManager = DayTimerManager()
     @StateObject var focusSessionNavigationViewModel = FocusSessionNavigationViewModel()
     @StateObject var focusSessionViewModel = FocusSessionViewModel()
     @Environment(FocusSessionManager.self) var focusSessionManager
-    
+
     var body: some View {
         @Bindable var focusSessionManager = focusSessionManager
         VStack {
-            Image(systemName: "timer")
-                .font(.system(size: 30))
+
+            //timer for the day's hours - spanning wake up to sleep - when timer = 0 : Moon Image
+            //mock data - start at 8am finish at 10pm
+            ProgressRing(progress: 0.5)
             
-            HStack {
-                Text("Total Pickups: 5")
-                Text("||")
-                Text("Total Screentime: 5h30m")
+            HStack(spacing: 60) {
+                //MARK: Start Time
+                VStack(spacing: 5) {
+                    Text("Wake Up")
+                        .opacity(0.7)
+                    
+                    Text(dayTimerManager.startTime, format: .dateTime.weekday().hour().minute().second())
+                        .fontWeight(.bold)
+                }
+                
+                //MARK: End Time
+                VStack(spacing: 5) {
+                    Text("Sleep")
+                        .opacity(0.7)
+                    
+                    Text(dayTimerManager.endTime, format: .dateTime.weekday().hour().minute().second())
+                        .fontWeight(.bold)
+                }
+                
             }
+            
+
+//            HStack {
+//                Text("Total Pickups: 5")
+//                Text("||")
+//                Text("Total Screentime: 5h30m")
+//            }
             
             PrimaryButton(title: "Start Focus Mode") {
                 focusSessionNavigationViewModel.navigateToFocusMode = true
