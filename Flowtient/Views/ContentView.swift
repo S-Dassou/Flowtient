@@ -18,18 +18,21 @@ struct ContentView: View {
     @StateObject var focusSessionViewModel = FocusSessionViewModel()
     @Environment(FocusSessionManager.self) var focusSessionManager
     @State var displayFocusSessionDetailSheet = false
+    
 
     var body: some View {
         @Bindable var focusSessionManager = focusSessionManager
         ZStack {
             
             VStack {
+                Text("\(Date())")
+                    .foregroundStyle(Color.white)
                 DailyProgressBar()
                 Spacer()
             }
             
             VStack {
-                if focusSessionManager.countdownTimer != nil {
+                if focusSessionManager.countdownTimer == nil {
                     Button(action: {
                         displayFocusSessionDetailSheet = true
                     }, label: {
@@ -37,8 +40,7 @@ struct ContentView: View {
                                      remainingTime: $focusSessionManager.remainingTime,
                                      totalTime: $focusSessionManager.totalTime)
                     })
-                    
-                    PrimaryButton(title: "End Focus Session") {
+                    ColouredButton(title: "End Focus Session", colour: Color.red.opacity(0.9)) {
                         //  - clear out managed settings store - invalidate timer
                         focusSessionViewModel.center.stopMonitoring()
                         focusSessionManager.removeRestrictions()
@@ -55,10 +57,14 @@ struct ContentView: View {
             }
             Spacer()
             
-            //if displayFocusDetail sheet = true {
-            //            FocusSessionDetailView()
-            //        }
-        
+            if displayFocusSessionDetailSheet == true {
+                FocusSessionDetailView(focusSessionViewModel: focusSessionViewModel)
+                    
+                    .onTapGesture {
+                        displayFocusSessionDetailSheet = false
+                    }
+            }
+            
         }
         .background(
             Image("DarkBackground")

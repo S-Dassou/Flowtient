@@ -25,7 +25,7 @@ struct FocusAppSelectionView: View {
             }
             .familyActivityPicker(isPresented: $isPresented, selection: $viewModel.selectionToDiscourage)
             
-            PrimaryButton(title: "Start Session") {
+            GreyButton(title: "Start Session") {
                 //start monitoring session
                 //go to home page - dismiss all navigation stack
                 //load up active session bar in home page and disable start session button

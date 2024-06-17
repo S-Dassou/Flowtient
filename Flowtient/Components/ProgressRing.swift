@@ -52,20 +52,22 @@ struct ProgressRing: View {
                 VStack(spacing: 5) {
                     Text("Elapsed Time")
                         .opacity(0.7)
-                        .foregroundStyle(Color.black)
+                        .foregroundStyle(Color.white)
                     Text(displayTimeElapsed)
                         .font(.title)
                         .fontWeight(.bold)
-                        .foregroundStyle(Color.black)
+                        .foregroundStyle(Color.white)
                 }
                 .padding(.top)
                     //MARK: Remaining Time
                     VStack(spacing: 5) {
                         Text("Remaining Time")
                             .opacity(0.7)
+                            .foregroundStyle(Color.white)
                         Text(displayRemainingTime)
                             .font(.title2)
                             .fontWeight(.bold)
+                            .foregroundStyle(Color.white)
                         
                     }
                 }

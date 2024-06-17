@@ -8,22 +8,22 @@
 import SwiftUI
 
 struct FocusSessionDetailView: View {
+    
+    @ObservedObject var focusSessionViewModel: FocusSessionViewModel
+    @StateObject var viewModel = FocusSessionDetailViewModel()
+    
     var body: some View {
         GeometryReader(content: { geometry in
             ZStack {
                 Color.black.opacity(0.7).ignoresSafeArea()
-                VStack {
+                VStack(alignment: .leading) {
                     Spacer()
                     ScrollView {
-                        Text("hi")
-                        Text("hi")
-                        Text("hi")
-                        Text("hi")
-                        Text("hi")
-                        Text("hi")
-                        Text("hi")
-                        Text("hi")
-
+                        ForEach($focusSessionViewModel.intentions) { $intention in
+                            IntentionCheckBox(isComplete: $intention.isComplete, text: intention.title)
+                                
+                        }
+                        
                     }
                     .frame(height: geometry.size.height * 0.25)
                 }
@@ -33,5 +33,5 @@ struct FocusSessionDetailView: View {
 }
 
 #Preview {
-    FocusSessionDetailView()
+    FocusSessionDetailView(focusSessionViewModel: FocusSessionViewModel())
 }

@@ -27,7 +27,7 @@ struct Login: View {
                 .background(.clear)
                 .padding(.horizontal)
             
-            PrimaryButton(title: "Log in") {
+            GreyButton(title: "Log in") {
                 if email == "shaf@gmail.com", password == "Password" {
                     navigateToHomePage = true
                 }

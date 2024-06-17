@@ -1,14 +1,15 @@
 //
-//  PrimaryButton.swift
+//  RedButton.swift
 //  Flowtient
 //
-//  Created by shafique dassu on 14/03/2024.
+//  Created by shafique dassu on 17/06/2024.
 //
 
 import SwiftUI
 
-struct PrimaryButton: View {
+struct ColouredButton: View {
     let title: String
+    var colour: Color
     var action: () -> Void
     var body: some View {
         VStack {
@@ -21,7 +22,7 @@ struct PrimaryButton: View {
                     .multilineTextAlignment(.center)
                     .frame(maxWidth: .infinity)
                     .frame(height: 40)
-                    .background(Color.gray)
+                    .background(colour)
                     .cornerRadius(10)
                     .padding(.horizontal, 23)
             }
@@ -29,11 +30,6 @@ struct PrimaryButton: View {
     }
 }
 
-struct PrimaryButton_Previews: PreviewProvider {
-    static func action() {
-        
-    }
-    static var previews: some View {
-        PrimaryButton(title: "Log In", action: action)
-    }
+#Preview {
+    ColouredButton(title: "End Session", colour: Color.red, action: { })
 }

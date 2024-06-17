@@ -28,11 +28,11 @@ struct FocusIntentionSetView: View {
                     .padding(.horizontal)
                 }
                 if viewModel.textFieldArray.count >= 2 {
-                    PrimaryButton(title: "Add Another Goal") {
+                    GreyButton(title: "Add Another Goal") {
                         //show warning message
                     }
                 } else {
-                    PrimaryButton(title: "Add Another Goal") {
+                    GreyButton(title: "Add Another Goal") {
                         viewModel.addTextField()
                     }
                 }
@@ -76,7 +76,7 @@ struct FocusIntentionSetView: View {
             }
             .padding(.top, 30)
             Spacer()
-            PrimaryButton(title: "Next") {
+            GreyButton(title: "Next") {
                 focusSessionViewModel.intentions.removeAll()
                 for intentionTextField in viewModel.textFieldArray {
                     focusSessionViewModel.intentions.append(IntentionModel(title: intentionTextField.goal))

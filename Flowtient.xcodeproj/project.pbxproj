@@ -15,12 +15,15 @@
 		F63071B62C1FB2910003FFC9 /* DailyProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63071B52C1FB2910003FFC9 /* DailyProgressBar.swift */; };
 		F63071B82C20419D0003FFC9 /* FocusSessionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63071B72C20419D0003FFC9 /* FocusSessionDetailView.swift */; };
 		F63071BA2C207F370003FFC9 /* LargeStartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63071B92C207F370003FFC9 /* LargeStartButton.swift */; };
+		F63071BC2C20AFB70003FFC9 /* ColouredButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63071BB2C20AFB70003FFC9 /* ColouredButton.swift */; };
+		F63071BE2C20E4670003FFC9 /* IntentionCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63071BD2C20E4670003FFC9 /* IntentionCheckBox.swift */; };
+		F63071C02C20E9B00003FFC9 /* FocusSessionDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63071BF2C20E9B00003FFC9 /* FocusSessionDetailViewModel.swift */; };
 		F67893B42BA3BC3200ACA13F /* FlowtientApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67893B32BA3BC3200ACA13F /* FlowtientApp.swift */; };
 		F67893B62BA3BC3200ACA13F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67893B52BA3BC3200ACA13F /* ContentView.swift */; };
 		F67893B82BA3BC3500ACA13F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F67893B72BA3BC3500ACA13F /* Assets.xcassets */; };
 		F67893BB2BA3BC3500ACA13F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F67893BA2BA3BC3500ACA13F /* Preview Assets.xcassets */; };
 		F67893C22BA3BC7100ACA13F /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67893C12BA3BC7100ACA13F /* Login.swift */; };
-		F67893C62BA3BDEE00ACA13F /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67893C52BA3BDEE00ACA13F /* PrimaryButton.swift */; };
+		F67893C62BA3BDEE00ACA13F /* GreyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67893C52BA3BDEE00ACA13F /* GreyButton.swift */; };
 		F67893C82BA446F900ACA13F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67893C72BA446F900ACA13F /* HomeView.swift */; };
 		F67893D12BA480DD00ACA13F /* FocusTimeSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67893D02BA480DD00ACA13F /* FocusTimeSetView.swift */; };
 		F67893D32BA48DC200ACA13F /* FocusIntentionSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67893D22BA48DC200ACA13F /* FocusIntentionSetView.swift */; };
@@ -77,13 +80,16 @@
 		F63071B52C1FB2910003FFC9 /* DailyProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyProgressBar.swift; sourceTree = "<group>"; };
 		F63071B72C20419D0003FFC9 /* FocusSessionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSessionDetailView.swift; sourceTree = "<group>"; };
 		F63071B92C207F370003FFC9 /* LargeStartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeStartButton.swift; sourceTree = "<group>"; };
+		F63071BB2C20AFB70003FFC9 /* ColouredButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColouredButton.swift; sourceTree = "<group>"; };
+		F63071BD2C20E4670003FFC9 /* IntentionCheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentionCheckBox.swift; sourceTree = "<group>"; };
+		F63071BF2C20E9B00003FFC9 /* FocusSessionDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSessionDetailViewModel.swift; sourceTree = "<group>"; };
 		F67893B02BA3BC3200ACA13F /* Flowtient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flowtient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F67893B32BA3BC3200ACA13F /* FlowtientApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowtientApp.swift; sourceTree = "<group>"; };
 		F67893B52BA3BC3200ACA13F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F67893B72BA3BC3500ACA13F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F67893BA2BA3BC3500ACA13F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F67893C12BA3BC7100ACA13F /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
-		F67893C52BA3BDEE00ACA13F /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		F67893C52BA3BDEE00ACA13F /* GreyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreyButton.swift; sourceTree = "<group>"; };
 		F67893C72BA446F900ACA13F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		F67893D02BA480DD00ACA13F /* FocusTimeSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusTimeSetView.swift; sourceTree = "<group>"; };
 		F67893D22BA48DC200ACA13F /* FocusIntentionSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusIntentionSetView.swift; sourceTree = "<group>"; };
@@ -174,7 +180,6 @@
 				F67893C42BA3BDCE00ACA13F /* Components */,
 				F67893C32BA3BC7500ACA13F /* Auth */,
 				F6F92B9A2BAE50E5005CC497 /* Extensions */,
-				F67893B52BA3BC3200ACA13F /* ContentView.swift */,
 				F67893B32BA3BC3200ACA13F /* FlowtientApp.swift */,
 				F67893B72BA3BC3500ACA13F /* Assets.xcassets */,
 				F67893B92BA3BC3500ACA13F /* Preview Content */,
@@ -202,13 +207,15 @@
 		F67893C42BA3BDCE00ACA13F /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				F67893C52BA3BDEE00ACA13F /* PrimaryButton.swift */,
+				F67893C52BA3BDEE00ACA13F /* GreyButton.swift */,
+				F63071BB2C20AFB70003FFC9 /* ColouredButton.swift */,
 				F67893D62BA49A9800ACA13F /* IntentionIconCircleButton.swift */,
 				F67894002BA5CBAD00ACA13F /* IntentionTextFieldRow.swift */,
 				F6A264C82C137358004D3E2A /* FocusSessionProgressBar.swift */,
 				F63071B12C1CED880003FFC9 /* ProgressRing.swift */,
 				F63071B52C1FB2910003FFC9 /* DailyProgressBar.swift */,
 				F63071B92C207F370003FFC9 /* LargeStartButton.swift */,
+				F63071BD2C20E4670003FFC9 /* IntentionCheckBox.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -228,6 +235,7 @@
 				F67893D82BA51CB300ACA13F /* FocusAppSelectionView.swift */,
 				F68E6EFC2BB2D4DB00754259 /* CreateNewTagView.swift */,
 				F63071B72C20419D0003FFC9 /* FocusSessionDetailView.swift */,
+				F67893B52BA3BC3200ACA13F /* ContentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -240,6 +248,7 @@
 				F68E6EB62BB0686200754259 /* FocusTimeSetViewModel.swift */,
 				F68E6EF82BB2876600754259 /* FocusIntentionSetViewModel.swift */,
 				F68E6EB82BB06C6E00754259 /* FocusAppSelectionViewModel.swift */,
+				F63071BF2C20E9B00003FFC9 /* FocusSessionDetailViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -382,6 +391,7 @@
 			files = (
 				F6A264C72C136C72004D3E2A /* FocusSessionNavigationViewModel.swift in Sources */,
 				F67893D92BA51CB300ACA13F /* FocusAppSelectionView.swift in Sources */,
+				F63071C02C20E9B00003FFC9 /* FocusSessionDetailViewModel.swift in Sources */,
 				F63071B22C1CED880003FFC9 /* ProgressRing.swift in Sources */,
 				F6F92B992BAE50E0005CC497 /* DeviceActivityMonitorExtension.swift in Sources */,
 				F68E6EB92BB06C6E00754259 /* FocusAppSelectionViewModel.swift in Sources */,
@@ -393,7 +403,8 @@
 				F67894012BA5CBAD00ACA13F /* IntentionTextFieldRow.swift in Sources */,
 				F67893B62BA3BC3200ACA13F /* ContentView.swift in Sources */,
 				F67894042BA7A7FD00ACA13F /* FocusSessionViewModel.swift in Sources */,
-				F67893C62BA3BDEE00ACA13F /* PrimaryButton.swift in Sources */,
+				F63071BC2C20AFB70003FFC9 /* ColouredButton.swift in Sources */,
+				F67893C62BA3BDEE00ACA13F /* GreyButton.swift in Sources */,
 				F67893D12BA480DD00ACA13F /* FocusTimeSetView.swift in Sources */,
 				F68E6EFD2BB2D4DB00754259 /* CreateNewTagView.swift in Sources */,
 				F6A264CE2C170289004D3E2A /* IntentionModel.swift in Sources */,
@@ -408,6 +419,7 @@
 				F63071B62C1FB2910003FFC9 /* DailyProgressBar.swift in Sources */,
 				F63071BA2C207F370003FFC9 /* LargeStartButton.swift in Sources */,
 				F67893D72BA49A9800ACA13F /* IntentionIconCircleButton.swift in Sources */,
+				F63071BE2C20E4670003FFC9 /* IntentionCheckBox.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

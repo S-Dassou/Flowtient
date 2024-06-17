@@ -31,7 +31,7 @@ struct FocusTimeSetView: View {
                 Spacer()
                 CircularSlider(sliderValue: $focusSessionViewModel.sliderValue)
                 Spacer()
-                PrimaryButton(title: "Next") {
+                GreyButton(title: "Next") {
                     print("next button tapped")
                     focusSessionManager.remainingTime = focusSessionViewModel.sliderValue * 60
                     focusSessionManager.totalTime = focusSessionViewModel.sliderValue * 60

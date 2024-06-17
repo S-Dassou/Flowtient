@@ -8,7 +8,13 @@
 import Foundation
 import SwiftUI
 
-struct IntentionModel: Identifiable {
+class IntentionModel: Identifiable, ObservableObject {
     let id = UUID()
     let title: String
+    @Published var isComplete: Bool
+    
+    init(title: String, isComplete: Bool = false) {
+            self.title = title
+            self.isComplete = isComplete
+        }
 }
