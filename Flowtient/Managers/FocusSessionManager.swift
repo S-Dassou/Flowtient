@@ -16,10 +16,21 @@ class FocusSessionManager {
     var remainingTime: Int = 0
     var totalTime: Int = 0
     
-    var displayTime: String {
+    var displayRemainingTime: String {
         let minute = Int(remainingTime) / 60 % 60
         let second = Int(remainingTime) % 60
         if remainingTime <= 59 {
+            return String(format: "%02i", second )
+        } else {
+            return String(format: "%02i:%02i", minute, second)
+        }
+    }
+    
+    var displayTimeElapsed: String {
+        let timeElapsed = totalTime - remainingTime
+        let minute = Int(timeElapsed) / 60 % 60
+        let second = Int(timeElapsed) % 60
+        if timeElapsed <= 59 {
             return String(format: "%02i", second )
         } else {
             return String(format: "%02i:%02i", minute, second)
