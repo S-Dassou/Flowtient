@@ -24,9 +24,13 @@ struct FocusTimeSetView: View {
         NavigationStack {
             VStack {
                 Text("T I M E")
+                    .fontWeight(.bold)
+                    .foregroundStyle(.white)
                     .padding(.top, 40)
                 Text("Your Most Precious Commodity")
+                    .foregroundStyle(.white)
                 Text("Select How Long You Want To Focus For")
+                    .foregroundStyle(.white)
                     .padding(.top, 20)
                 Spacer()
                 CircularSlider(sliderValue: $focusSessionViewModel.sliderValue)
@@ -38,6 +42,12 @@ struct FocusTimeSetView: View {
                     focusSessionNavigationViewModel.navigateToIntentView = true
                 }
             }
+            .background(
+                Image("DarkBackground")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .ignoresSafeArea()
+            )
             .navigationDestination(isPresented: $focusSessionNavigationViewModel.navigateToIntentView) {
                 FocusIntentionSetView(focusSessionViewModel: focusSessionViewModel, focusSessionNavigationViewModel: focusSessionNavigationViewModel)
             }
@@ -82,6 +92,7 @@ struct CircularSlider: View {
             Text(displayTime)
                 .font(.largeTitle)
                 .fontWeight(.bold)
+                .foregroundStyle(Color.white).shadow(color: .black, radius: 4, x: 5, y: 5)
             
         }
         .frame(width: 300, height: 300)

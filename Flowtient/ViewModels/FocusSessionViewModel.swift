@@ -14,7 +14,7 @@ import DeviceActivity
 class FocusSessionViewModel: ObservableObject {
     @Published var selectionToDiscourage = FamilyActivitySelection() //refactor test
     @Published var sliderValue: Int = 0 //total time in minutes
-    @Published var intentions: [IntentionModel] = [IntentionModel(title: "Finish biology revision", isComplete: true), IntentionModel(title: "Get groceries", isComplete: true), IntentionModel(title: "Get a new mac", isComplete: false)]
+    @Published var intentions: [IntentionModel] = [IntentionModel(goal: "Finish biology revision", isComplete: true), IntentionModel(goal: "Get groceries", isComplete: true), IntentionModel(goal: "Get a new mac", isComplete: false)]
     let center = DeviceActivityCenter()
     var timer: Timer?
     

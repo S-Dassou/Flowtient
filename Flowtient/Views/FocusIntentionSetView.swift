@@ -20,14 +20,18 @@ struct FocusIntentionSetView: View {
             Text("What do you want to accomplish? \n Write your goals")
           
             VStack {
-                ForEach(Array(viewModel.textFieldArray.prefix(2).enumerated()), id: \.1) { index, row in
-                    HStack {
-                        Text("\(index + 1)")
-                        row
-                    }
-                    .padding(.horizontal)
-                }
-                if viewModel.textFieldArray.count >= 2 {
+                ForEach(viewModel.textFieldArray.prefix(3)) { model in
+                                if let index = viewModel.textFieldArray.firstIndex(where: { $0.id == model.id }) {
+                                    HStack {
+                                        Text("\(index + 1)")
+                                        IntentionTextFieldRow(goal: $viewModel.textFieldArray[index].goal) {
+                                            viewModel.deleteItem(at: index)
+                                        }
+                                    }
+                                    .padding(.horizontal)
+                                }
+                            }
+                if viewModel.textFieldArray.count >= 3 {
                     GreyButton(title: "Add Another Goal") {
                         //show warning message
                     }
@@ -79,11 +83,17 @@ struct FocusIntentionSetView: View {
             GreyButton(title: "Next") {
                 focusSessionViewModel.intentions.removeAll()
                 for intentionTextField in viewModel.textFieldArray {
-                    focusSessionViewModel.intentions.append(IntentionModel(title: intentionTextField.goal))
+                    focusSessionViewModel.intentions.append(IntentionModel(goal: intentionTextField.goal))
                 }
                 focusSessionNavigationViewModel.navigateToAppPermissionsView = true
             }
         }
+//        .background(
+//            Image("DarkBackground")
+//                .resizable()
+//                .aspectRatio(contentMode: .fill)
+//                .ignoresSafeArea()
+//        )
         .navigationDestination(isPresented: $focusSessionNavigationViewModel.navigateToAppPermissionsView) {
             FocusAppSelectionView(focusSessionViewModel: focusSessionViewModel, focusSessionNavigationViewModel: focusSessionNavigationViewModel)
         }

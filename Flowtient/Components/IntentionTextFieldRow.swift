@@ -9,20 +9,28 @@ import SwiftUI
 
 struct IntentionTextFieldRow: View, Identifiable {
     let id = UUID()
-    @State var goal = ""
+    @Binding var goal: String
+    let deleteAction: () -> Void
     
     var body: some View {
-        TextField("Hi", text: $goal)
-            .foregroundColor(.white)
-            .frame(height: 50)
-            .background(.clear)
-            .padding(.horizontal)
+        HStack {
+            TextField("Add an intention", text: $goal)
+                .foregroundColor(.white)
+                .frame(height: 50)
+                .background(.clear)
+                .padding(.horizontal)
             
+            Button(action: deleteAction) {
+                Image(systemName: "trash")
+                    .foregroundColor(.red)
+            }
+            .padding(.trailing)
+        }
     }
 }
 
 #Preview {
-    IntentionTextFieldRow()
+    IntentionTextFieldRow(goal: .constant("Set up website"), deleteAction: {})
 }
 
 extension IntentionTextFieldRow: Hashable {

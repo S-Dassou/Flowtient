@@ -20,7 +20,7 @@ struct FocusSessionDetailView: View {
                     Spacer()
                     ScrollView {
                         ForEach($focusSessionViewModel.intentions) { $intention in
-                            IntentionCheckBox(isComplete: $intention.isComplete, text: intention.title)
+                            IntentionCheckBox(isComplete: $intention.isComplete, text: intention.goal)
                                 
                         }
                         

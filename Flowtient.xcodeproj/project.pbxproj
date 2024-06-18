@@ -18,6 +18,7 @@
 		F63071BC2C20AFB70003FFC9 /* ColouredButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63071BB2C20AFB70003FFC9 /* ColouredButton.swift */; };
 		F63071BE2C20E4670003FFC9 /* IntentionCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63071BD2C20E4670003FFC9 /* IntentionCheckBox.swift */; };
 		F63071C02C20E9B00003FFC9 /* FocusSessionDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63071BF2C20E9B00003FFC9 /* FocusSessionDetailViewModel.swift */; };
+		F63071C22C21011F0003FFC9 /* CircleXButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63071C12C21011F0003FFC9 /* CircleXButton.swift */; };
 		F67893B42BA3BC3200ACA13F /* FlowtientApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67893B32BA3BC3200ACA13F /* FlowtientApp.swift */; };
 		F67893B62BA3BC3200ACA13F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67893B52BA3BC3200ACA13F /* ContentView.swift */; };
 		F67893B82BA3BC3500ACA13F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F67893B72BA3BC3500ACA13F /* Assets.xcassets */; };
@@ -83,6 +84,7 @@
 		F63071BB2C20AFB70003FFC9 /* ColouredButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColouredButton.swift; sourceTree = "<group>"; };
 		F63071BD2C20E4670003FFC9 /* IntentionCheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentionCheckBox.swift; sourceTree = "<group>"; };
 		F63071BF2C20E9B00003FFC9 /* FocusSessionDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSessionDetailViewModel.swift; sourceTree = "<group>"; };
+		F63071C12C21011F0003FFC9 /* CircleXButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleXButton.swift; sourceTree = "<group>"; };
 		F67893B02BA3BC3200ACA13F /* Flowtient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flowtient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F67893B32BA3BC3200ACA13F /* FlowtientApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowtientApp.swift; sourceTree = "<group>"; };
 		F67893B52BA3BC3200ACA13F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				F63071B52C1FB2910003FFC9 /* DailyProgressBar.swift */,
 				F63071B92C207F370003FFC9 /* LargeStartButton.swift */,
 				F63071BD2C20E4670003FFC9 /* IntentionCheckBox.swift */,
+				F63071C12C21011F0003FFC9 /* CircleXButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 				F68E6EFD2BB2D4DB00754259 /* CreateNewTagView.swift in Sources */,
 				F6A264CE2C170289004D3E2A /* IntentionModel.swift in Sources */,
 				F67893C82BA446F900ACA13F /* HomeView.swift in Sources */,
+				F63071C22C21011F0003FFC9 /* CircleXButton.swift in Sources */,
 				F67C08912BB5115A0020751B /* FocusSessionModel.swift in Sources */,
 				F6A264CC2C145B77004D3E2A /* FocusSessionManager.swift in Sources */,
 				F63071B82C20419D0003FFC9 /* FocusSessionDetailView.swift in Sources */,
