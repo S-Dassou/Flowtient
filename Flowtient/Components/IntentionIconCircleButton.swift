@@ -40,7 +40,7 @@ struct IntentionIconCircleButton: View {
                         .textCase(.uppercase)
                         .font(.system(size: 19))
                         .fontWeight(.semibold)
-                        .foregroundColor(.black)
+                        .foregroundColor(.white)
                 }
             }
         })

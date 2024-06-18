@@ -17,69 +17,50 @@ struct FocusIntentionSetView: View {
     var body: some View {
         VStack(alignment: .center) {
             Text("I N T E N T I O N")
-            Text("What do you want to accomplish? \n Write your goals")
+                .font(.system(size: 35))
+                .fontWeight(.bold)
+                .foregroundStyle(.white)
+                .padding(.top, 40)
+            
+            Text("What do you want to accomplish in the next \(focusSessionViewModel.sliderValue) minutes?")
+                .fontWeight(.bold)
+                .foregroundStyle(.white)
+                .multilineTextAlignment(.center)
+                .padding(.top, 5)
+                
           
             VStack {
                 ForEach(viewModel.textFieldArray.prefix(3)) { model in
                                 if let index = viewModel.textFieldArray.firstIndex(where: { $0.id == model.id }) {
                                     HStack {
                                         Text("\(index + 1)")
+                                            .foregroundStyle(Color.white)
+                                            .fontWeight(.bold)
+                                            .padding(.horizontal)
                                         IntentionTextFieldRow(goal: $viewModel.textFieldArray[index].goal) {
                                             viewModel.deleteItem(at: index)
                                         }
+                                        .padding(.vertical)
                                     }
                                     .padding(.horizontal)
+                              
                                 }
                             }
                 if viewModel.textFieldArray.count >= 3 {
                     GreyButton(title: "Add Another Goal") {
                         //show warning message
                     }
+                    .padding(.top)
                 } else {
                     GreyButton(title: "Add Another Goal") {
                         viewModel.addTextField()
                     }
+                    .padding(.top)
                 }
             }
-            HStack {
-                Button {
-                    //edit all tags
-                } label: {
-                    Image(systemName: "ellipsis.circle")
-                        .font(.system(size: 30))
-                        .foregroundStyle(Color.gray)
-                }
-                VStack {
-                    Text("Tag your Focus Session")
-                    Text("Choose up to 3")
-                }
-                Button {
-                    //go to create new tag view
-                } label: {
-                    Image(systemName: "plus.circle")
-                        .font(.system(size: 30))
-                        .foregroundStyle(Color.gray)
-                }
 
-            }
-                .padding(.top, 40)
-            VStack {
-                HStack(spacing: 50) {
-                    ForEach(viewModel.intentionTags) { tag in
-                        IntentionIconCircleButton(intentionTag: tag, onSelectionChanged: { isSelected in
-                            if isSelected {
-                                viewModel.addTag(tag)
-                            } else {
-                                viewModel.removeTag(tag)
-                            }
-                        })
-                    }
-                }
-   
-               
-            }
-            .padding(.top, 30)
-            Spacer()
+Spacer()
+            
             GreyButton(title: "Next") {
                 focusSessionViewModel.intentions.removeAll()
                 for intentionTextField in viewModel.textFieldArray {
@@ -88,12 +69,12 @@ struct FocusIntentionSetView: View {
                 focusSessionNavigationViewModel.navigateToAppPermissionsView = true
             }
         }
-//        .background(
-//            Image("DarkBackground")
-//                .resizable()
-//                .aspectRatio(contentMode: .fill)
-//                .ignoresSafeArea()
-//        )
+        .background(
+            Image("DarkBackground")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .ignoresSafeArea()
+        )
         .navigationDestination(isPresented: $focusSessionNavigationViewModel.navigateToAppPermissionsView) {
             FocusAppSelectionView(focusSessionViewModel: focusSessionViewModel, focusSessionNavigationViewModel: focusSessionNavigationViewModel)
         }

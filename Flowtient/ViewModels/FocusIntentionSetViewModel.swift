@@ -11,7 +11,7 @@ import SwiftUI
 class FocusIntentionSetViewModel: ObservableObject {
     @Published var goalOne: String = ""
     @Published var goalTwo: String = ""
-    @Published var textFieldArray: [IntentionModel] = []
+    @Published var textFieldArray: [IntentionModel] = [IntentionModel(goal: "")]
 //    @Published var intentionTags: [IntentionIconCircleButton] = [IntentionIconCircleButton(imageName: "person", title: "social"), IntentionIconCircleButton(imageName: "briefcase", title: "work"), IntentionIconCircleButton(imageName: "lock.display", title: "iOS")]
 //
     @Published var intentionTags: [IntentionTag] = IntentionTag.defaultIntentionTags //array of intention tags containing all selected/unselected tags (currently 3 defaults)
