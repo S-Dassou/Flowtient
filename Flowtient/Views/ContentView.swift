@@ -32,7 +32,7 @@ struct ContentView: View {
             }
             
             VStack {
-                if focusSessionManager.countdownTimer == nil {
+                if focusSessionManager.countdownTimer != nil {
                     Button(action: {
                         displayFocusSessionDetailSheet = true
                     }, label: {

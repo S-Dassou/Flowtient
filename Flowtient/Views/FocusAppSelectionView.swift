@@ -20,11 +20,19 @@ struct FocusAppSelectionView: View {
     var body: some View {
         VStack {
             Text("Tap the shield to select apps you'd like to mute")
+                .foregroundStyle(Color.white)
             
-            Button("select apps") {
+            Button(action: {
                 isPresented = true
-            }
+            }, label: {
+                LottieView(filename: "LottieShield")
+            })
             .familyActivityPicker(isPresented: $isPresented, selection: $viewModel.selectionToDiscourage)
+            
+//            Button("select apps") {
+//                
+//            }
+//            .familyActivityPicker(isPresented: $isPresented, selection: $viewModel.selectionToDiscourage)
             
             GreyButton(title: "Start Session") {
                 //start monitoring session
@@ -35,6 +43,12 @@ struct FocusAppSelectionView: View {
                 focusSessionManager.startSessionTimer()
             }
         }
+        .background(
+            Image("DarkBackground")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .ignoresSafeArea()
+        )
         .onChange(of: viewModel.selectionToDiscourage) {
             viewModel.saveSelection(selection: viewModel.selectionToDiscourage)
             print("\(viewModel.selectionToDiscourage)")
