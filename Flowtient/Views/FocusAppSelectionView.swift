@@ -19,7 +19,8 @@ struct FocusAppSelectionView: View {
     
     var body: some View {
         VStack {
-            Text("Choose which apps you'd like to block")
+            Text("Tap the shield to select apps you'd like to mute")
+            
             Button("select apps") {
                 isPresented = true
             }
