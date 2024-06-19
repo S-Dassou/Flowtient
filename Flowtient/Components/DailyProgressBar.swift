@@ -10,7 +10,7 @@ import SwiftUI
 struct DailyProgressBar: View {
     @State private var currentTime = Date()
     @State private var progress: Double = 0.0
-    private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    private let timer = Timer.publish(every: 1200, on: .main, in: .common).autoconnect()
     
     var body: some View {
         VStack {

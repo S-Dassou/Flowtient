@@ -22,6 +22,14 @@
 		F63071C42C21CCF60003FFC9 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63071C32C21CCF60003FFC9 /* LottieView.swift */; };
 		F63071C72C21CD980003FFC9 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = F63071C62C21CD980003FFC9 /* Lottie */; };
 		F63071CA2C21D08C0003FFC9 /* LottieShield.json in Resources */ = {isa = PBXBuildFile; fileRef = F63071C92C21D08C0003FFC9 /* LottieShield.json */; };
+		F63071D12C21D7230003FFC9 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F63071D02C21D7230003FFC9 /* WidgetKit.framework */; };
+		F63071D32C21D7230003FFC9 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F63071D22C21D7230003FFC9 /* SwiftUI.framework */; };
+		F63071D62C21D7230003FFC9 /* FocusSessionToDoWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63071D52C21D7230003FFC9 /* FocusSessionToDoWidgetBundle.swift */; };
+		F63071D82C21D7230003FFC9 /* FocusSessionToDoWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63071D72C21D7230003FFC9 /* FocusSessionToDoWidgetLiveActivity.swift */; };
+		F63071DA2C21D7230003FFC9 /* FocusSessionToDoWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63071D92C21D7230003FFC9 /* FocusSessionToDoWidget.swift */; };
+		F63071DC2C21D7230003FFC9 /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63071DB2C21D7230003FFC9 /* AppIntent.swift */; };
+		F63071DE2C21D7250003FFC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F63071DD2C21D7250003FFC9 /* Assets.xcassets */; };
+		F63071E22C21D7250003FFC9 /* FocusSessionToDoWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F63071CF2C21D7230003FFC9 /* FocusSessionToDoWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F67893B42BA3BC3200ACA13F /* FlowtientApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67893B32BA3BC3200ACA13F /* FlowtientApp.swift */; };
 		F67893B62BA3BC3200ACA13F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67893B52BA3BC3200ACA13F /* ContentView.swift */; };
 		F67893B82BA3BC3500ACA13F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F67893B72BA3BC3500ACA13F /* Assets.xcassets */; };
@@ -57,6 +65,13 @@
 			remoteGlobalIDString = F6187D472C0732A7007483C5;
 			remoteInfo = FlowtientDeviceActivityMonitor;
 		};
+		F63071E02C21D7250003FFC9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F67893A82BA3BC3200ACA13F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F63071CE2C21D7230003FFC9;
+			remoteInfo = FocusSessionToDoWidgetExtension;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -66,6 +81,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				F63071E22C21D7250003FFC9 /* FocusSessionToDoWidgetExtension.appex in Embed Foundation Extensions */,
 				F6187D532C0732A7007483C5 /* FlowtientDeviceActivityMonitor.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
@@ -90,6 +106,15 @@
 		F63071C12C21011F0003FFC9 /* CircleXButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleXButton.swift; sourceTree = "<group>"; };
 		F63071C32C21CCF60003FFC9 /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		F63071C92C21D08C0003FFC9 /* LottieShield.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LottieShield.json; sourceTree = "<group>"; };
+		F63071CF2C21D7230003FFC9 /* FocusSessionToDoWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FocusSessionToDoWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		F63071D02C21D7230003FFC9 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		F63071D22C21D7230003FFC9 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		F63071D52C21D7230003FFC9 /* FocusSessionToDoWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSessionToDoWidgetBundle.swift; sourceTree = "<group>"; };
+		F63071D72C21D7230003FFC9 /* FocusSessionToDoWidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSessionToDoWidgetLiveActivity.swift; sourceTree = "<group>"; };
+		F63071D92C21D7230003FFC9 /* FocusSessionToDoWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSessionToDoWidget.swift; sourceTree = "<group>"; };
+		F63071DB2C21D7230003FFC9 /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
+		F63071DD2C21D7250003FFC9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F63071DF2C21D7250003FFC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F67893B02BA3BC3200ACA13F /* Flowtient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flowtient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F67893B32BA3BC3200ACA13F /* FlowtientApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowtientApp.swift; sourceTree = "<group>"; };
 		F67893B52BA3BC3200ACA13F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -128,6 +153,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F63071CC2C21D7230003FFC9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F63071D32C21D7230003FFC9 /* SwiftUI.framework in Frameworks */,
+				F63071D12C21D7230003FFC9 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F67893AD2BA3BC3200ACA13F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -143,6 +177,8 @@
 			isa = PBXGroup;
 			children = (
 				F6187D4A2C0732A7007483C5 /* DeviceActivity.framework */,
+				F63071D02C21D7230003FFC9 /* WidgetKit.framework */,
+				F63071D22C21D7230003FFC9 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -165,11 +201,25 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		F63071D42C21D7230003FFC9 /* FocusSessionToDoWidget */ = {
+			isa = PBXGroup;
+			children = (
+				F63071D52C21D7230003FFC9 /* FocusSessionToDoWidgetBundle.swift */,
+				F63071D72C21D7230003FFC9 /* FocusSessionToDoWidgetLiveActivity.swift */,
+				F63071D92C21D7230003FFC9 /* FocusSessionToDoWidget.swift */,
+				F63071DB2C21D7230003FFC9 /* AppIntent.swift */,
+				F63071DD2C21D7250003FFC9 /* Assets.xcassets */,
+				F63071DF2C21D7250003FFC9 /* Info.plist */,
+			);
+			path = FocusSessionToDoWidget;
+			sourceTree = "<group>";
+		};
 		F67893A72BA3BC3200ACA13F = {
 			isa = PBXGroup;
 			children = (
 				F67893B22BA3BC3200ACA13F /* Flowtient */,
 				F6187D4C2C0732A7007483C5 /* FlowtientDeviceActivityMonitor */,
+				F63071D42C21D7230003FFC9 /* FocusSessionToDoWidget */,
 				F6187D492C0732A7007483C5 /* Frameworks */,
 				F67893B12BA3BC3200ACA13F /* Products */,
 			);
@@ -180,6 +230,7 @@
 			children = (
 				F67893B02BA3BC3200ACA13F /* Flowtient.app */,
 				F6187D482C0732A7007483C5 /* FlowtientDeviceActivityMonitor.appex */,
+				F63071CF2C21D7230003FFC9 /* FocusSessionToDoWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -320,6 +371,23 @@
 			productReference = F6187D482C0732A7007483C5 /* FlowtientDeviceActivityMonitor.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		F63071CE2C21D7230003FFC9 /* FocusSessionToDoWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F63071E32C21D7250003FFC9 /* Build configuration list for PBXNativeTarget "FocusSessionToDoWidgetExtension" */;
+			buildPhases = (
+				F63071CB2C21D7230003FFC9 /* Sources */,
+				F63071CC2C21D7230003FFC9 /* Frameworks */,
+				F63071CD2C21D7230003FFC9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FocusSessionToDoWidgetExtension;
+			productName = FocusSessionToDoWidgetExtension;
+			productReference = F63071CF2C21D7230003FFC9 /* FocusSessionToDoWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		F67893AF2BA3BC3200ACA13F /* Flowtient */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F67893BE2BA3BC3500ACA13F /* Build configuration list for PBXNativeTarget "Flowtient" */;
@@ -333,6 +401,7 @@
 			);
 			dependencies = (
 				F6187D522C0732A7007483C5 /* PBXTargetDependency */,
+				F63071E12C21D7250003FFC9 /* PBXTargetDependency */,
 			);
 			name = Flowtient;
 			packageProductDependencies = (
@@ -353,6 +422,9 @@
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					F6187D472C0732A7007483C5 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					F63071CE2C21D7230003FFC9 = {
 						CreatedOnToolsVersion = 15.0;
 					};
 					F67893AF2BA3BC3200ACA13F = {
@@ -378,6 +450,7 @@
 			targets = (
 				F67893AF2BA3BC3200ACA13F /* Flowtient */,
 				F6187D472C0732A7007483C5 /* FlowtientDeviceActivityMonitor */,
+				F63071CE2C21D7230003FFC9 /* FocusSessionToDoWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -387,6 +460,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F63071CD2C21D7230003FFC9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F63071DE2C21D7250003FFC9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,6 +489,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6187D4E2C0732A7007483C5 /* DeviceActivityMonitorExtension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F63071CB2C21D7230003FFC9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F63071D82C21D7230003FFC9 /* FocusSessionToDoWidgetLiveActivity.swift in Sources */,
+				F63071DC2C21D7230003FFC9 /* AppIntent.swift in Sources */,
+				F63071DA2C21D7230003FFC9 /* FocusSessionToDoWidget.swift in Sources */,
+				F63071D62C21D7230003FFC9 /* FocusSessionToDoWidgetBundle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,6 +551,11 @@
 			target = F6187D472C0732A7007483C5 /* FlowtientDeviceActivityMonitor */;
 			targetProxy = F6187D512C0732A7007483C5 /* PBXContainerItemProxy */;
 		};
+		F63071E12C21D7250003FFC9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F63071CE2C21D7230003FFC9 /* FocusSessionToDoWidgetExtension */;
+			targetProxy = F63071E02C21D7250003FFC9 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
@@ -506,6 +603,60 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.shafique.Flowtient.FlowtientDeviceActivityMonitor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F63071E42C21D7250003FFC9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8642GNVD2M;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FocusSessionToDoWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FocusSessionToDoWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shafique.Flowtient.FocusSessionToDoWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F63071E52C21D7250003FFC9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8642GNVD2M;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FocusSessionToDoWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FocusSessionToDoWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shafique.Flowtient.FocusSessionToDoWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -703,6 +854,15 @@
 			buildConfigurations = (
 				F6187D552C0732A7007483C5 /* Debug */,
 				F6187D562C0732A7007483C5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F63071E32C21D7250003FFC9 /* Build configuration list for PBXNativeTarget "FocusSessionToDoWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F63071E42C21D7250003FFC9 /* Debug */,
+				F63071E52C21D7250003FFC9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

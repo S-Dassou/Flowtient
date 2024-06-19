@@ -11,10 +11,12 @@ import FamilyControls
 import ManagedSettings
 import DeviceActivity
 
-@Observable
-class FocusSessionManager {
-    var remainingTime: Int = 0
+
+class FocusSessionManager: ObservableObject {
+    @Published var remainingTime: Int = 0
+    @Published var displayPercent: CGFloat = 0
     var totalTime: Int = 0
+    var countdownTimer: Timer?
     
     var displayRemainingTime: String {
         let minute = Int(remainingTime) / 60 % 60
@@ -36,9 +38,6 @@ class FocusSessionManager {
             return String(format: "%02i:%02i", minute, second)
         }
     }
-    
-    var displayPercent: CGFloat = 0
-    var countdownTimer: Timer?
     
     func startSessionTimer() {
         self.countdownTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] timer in
@@ -66,4 +65,14 @@ class FocusSessionManager {
         store.shield.webDomainCategories = nil
         store.shield.webDomains = nil
     }
+    
+    func updateRemainingTime(by timeInterval: TimeInterval) {
+        remainingTime -= Int(timeInterval)
+        if remainingTime < 0 {
+            remainingTime = 0
+        }
+        // Update displayPercent to reflect the change
+        displayPercent = CGFloat(totalTime - remainingTime) / CGFloat(totalTime)
+    }
+    
 }

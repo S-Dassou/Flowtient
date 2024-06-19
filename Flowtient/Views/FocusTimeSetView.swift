@@ -18,7 +18,7 @@ struct FocusTimeSetView: View {
     @StateObject var viewModel = FocusTimeSetViewModel()
     @ObservedObject var focusSessionViewModel: FocusSessionViewModel
     @ObservedObject var focusSessionNavigationViewModel: FocusSessionNavigationViewModel
-    @Environment(FocusSessionManager.self) var focusSessionManager
+    @EnvironmentObject var focusSessionManager: FocusSessionManager
     
     var body: some View {
         NavigationStack {
@@ -56,8 +56,8 @@ struct FocusTimeSetView: View {
 }
 
 #Preview {
-    FocusTimeSetView(focusSessionViewModel: FocusSessionViewModel(), focusSessionNavigationViewModel: FocusSessionNavigationViewModel())
-        .environment(FocusSessionManager())
+    FocusTimeSetView(focusSessionViewModel: FocusSessionViewModel(focusSessionManager: FocusSessionManager()), focusSessionNavigationViewModel: FocusSessionNavigationViewModel())
+        .environmentObject(FocusSessionManager())
 }
 
 struct CircularSlider: View {

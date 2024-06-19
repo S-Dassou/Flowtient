@@ -15,13 +15,18 @@ struct ContentView: View {
      */
     
     @StateObject var focusSessionNavigationViewModel = FocusSessionNavigationViewModel()
-    @StateObject var focusSessionViewModel = FocusSessionViewModel()
-    @Environment(FocusSessionManager.self) var focusSessionManager
+    @StateObject var focusSessionViewModel: FocusSessionViewModel
+    @EnvironmentObject var focusSessionManager: FocusSessionManager
     @State var displayFocusSessionDetailSheet = false
+    @Environment(\.scenePhase) var scenePhase
+    
+    init() {
+        _focusSessionViewModel = StateObject(wrappedValue: FocusSessionViewModel(focusSessionManager: FocusSessionManager()))
+    }
     
 
     var body: some View {
-        @Bindable var focusSessionManager = focusSessionManager
+      //  @Bindable var focusSessionManager = focusSessionManager
         ZStack {
             
             VStack {
@@ -75,13 +80,20 @@ struct ContentView: View {
         .fullScreenCover(isPresented: $focusSessionNavigationViewModel.navigateToFocusMode, content: {
             FocusTimeSetView(focusSessionViewModel: focusSessionViewModel, focusSessionNavigationViewModel: focusSessionNavigationViewModel)
         })
-        
+        .onChange(of: scenePhase, {
+            switch scenePhase {
+            case .active: focusSessionViewModel.calculateTimeDifference(); print("active")
+            case .background: focusSessionViewModel.timeOnLeave = Date(); print("background"); print(focusSessionViewModel.timeOnLeave ?? "notimeonleaveDetected")
+            case .inactive: focusSessionViewModel.timeOnLeave = Date(); print("inactive"); print(focusSessionViewModel.timeOnLeave ?? "notimeonleaveDetected")
+            default: print("ScenePhase: unexpected state")
+            }
+        })
     }
 }
 
 #Preview {
         ContentView()
-        .environment(FocusSessionManager())
+        .environmentObject(FocusSessionManager())
 }
 
 //VStack {

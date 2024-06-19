@@ -15,7 +15,7 @@ struct FocusAppSelectionView: View {
     @StateObject var viewModel = FocusAppSelectionViewModel()
     @ObservedObject var focusSessionViewModel: FocusSessionViewModel
     @ObservedObject var focusSessionNavigationViewModel: FocusSessionNavigationViewModel
-    @Environment(FocusSessionManager.self) var focusSessionManager
+    @EnvironmentObject var focusSessionManager: FocusSessionManager
     
     var body: some View {
         VStack {
@@ -57,6 +57,6 @@ struct FocusAppSelectionView: View {
 }
 
 #Preview {
-    FocusAppSelectionView(focusSessionViewModel: FocusSessionViewModel(), focusSessionNavigationViewModel: FocusSessionNavigationViewModel())
-        .environment(FocusSessionManager())
+    FocusAppSelectionView(focusSessionViewModel: FocusSessionViewModel(focusSessionManager: FocusSessionManager()), focusSessionNavigationViewModel: FocusSessionNavigationViewModel())
+        .environmentObject(FocusSessionManager())
 }
