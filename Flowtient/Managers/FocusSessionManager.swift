@@ -17,6 +17,7 @@ class FocusSessionManager: ObservableObject {
     @Published var displayPercent: CGFloat = 0
     var totalTime: Int = 0
     var countdownTimer: Timer?
+    var timeOnLeave: Date?
     
     var displayRemainingTime: String {
         let minute = Int(remainingTime) / 60 % 60
@@ -52,6 +53,11 @@ class FocusSessionManager: ObservableObject {
         }
     }
     
+    func pauseSessionTimer() {
+        countdownTimer?.invalidate()
+        timeOnLeave = Date()
+    }
+    
     func stopFocusSession() {
         countdownTimer?.invalidate()
         remainingTime = 0
@@ -75,4 +81,27 @@ class FocusSessionManager: ObservableObject {
         displayPercent = CGFloat(totalTime - remainingTime) / CGFloat(totalTime)
     }
     
+    func calculateTimeDifference() {
+            if let timeOnLeave = timeOnLeave {
+                print("DEBUG: TimeOnLeave \(timeOnLeave)")
+                let timeOnLeaveInSeconds = timeOnLeave.timeIntervalSince1970
+                print("DEBUG: TimeOnLeaveInSecs \(timeOnLeaveInSeconds)")
+                let timeOnReturnInSeconds = Date().timeIntervalSince1970
+                print("DEBUG: TimeOnReturnInSecs \(timeOnReturnInSeconds)")
+             
+                let totalTimeElapsed = (timeOnReturnInSeconds - timeOnLeaveInSeconds)
+                
+                print("DEBUG: totalTimeElapsed \(totalTimeElapsed)")
+                
+                remainingTime -= Int(totalTimeElapsed)
+                if remainingTime <= 0 {
+                    stopFocusSession()
+                } else {
+                    startSessionTimer()
+                }
+
+                self.timeOnLeave = nil
+            }
+        }
+
 }

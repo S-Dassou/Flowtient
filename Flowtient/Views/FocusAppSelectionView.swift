@@ -57,6 +57,6 @@ struct FocusAppSelectionView: View {
 }
 
 #Preview {
-    FocusAppSelectionView(focusSessionViewModel: FocusSessionViewModel(focusSessionManager: FocusSessionManager()), focusSessionNavigationViewModel: FocusSessionNavigationViewModel())
+    FocusAppSelectionView(focusSessionViewModel: FocusSessionViewModel(), focusSessionNavigationViewModel: FocusSessionNavigationViewModel())
         .environmentObject(FocusSessionManager())
 }

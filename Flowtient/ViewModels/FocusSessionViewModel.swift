@@ -12,18 +12,12 @@ import ManagedSettings
 import DeviceActivity
 
 class FocusSessionViewModel: ObservableObject {
-    @ObservedObject var focusSessionManager: FocusSessionManager
     
     @Published var selectionToDiscourage = FamilyActivitySelection() //refactor test
     @Published var sliderValue: Int = 0 //total time in minutes
     @Published var intentions: [IntentionModel] = [IntentionModel(goal: "Finish biology revision", isComplete: true), IntentionModel(goal: "Get groceries", isComplete: true), IntentionModel(goal: "Get a new mac", isComplete: false)]
     let center = DeviceActivityCenter()
-    var timer: Timer?
-    var timeOnLeave: Date?
-    
-    init(focusSessionManager: FocusSessionManager) {
-        self.focusSessionManager = focusSessionManager
-    }
+
     
     func removeRestrictions(_ activities: [DeviceActivityName] = []) {
         let store = ManagedSettingsStore()
@@ -64,13 +58,5 @@ class FocusSessionViewModel: ObservableObject {
             }
         }
     }
-    
-    func calculateTimeDifference() {
-            if let timeOnLeave = timeOnLeave {
-                let timeDifference = Date().timeIntervalSince(timeOnLeave)
-                focusSessionManager.updateRemainingTime(by: timeDifference)
-                self.timeOnLeave = nil
-            }
-        }
 }
 

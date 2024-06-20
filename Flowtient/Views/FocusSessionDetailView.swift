@@ -33,5 +33,5 @@ struct FocusSessionDetailView: View {
 }
 
 #Preview {
-    FocusSessionDetailView(focusSessionViewModel: FocusSessionViewModel(focusSessionManager: FocusSessionManager()))
+    FocusSessionDetailView(focusSessionViewModel: FocusSessionViewModel())
 }

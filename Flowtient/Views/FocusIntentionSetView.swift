@@ -82,7 +82,7 @@ Spacer()
 }
 
 #Preview {
-    FocusIntentionSetView(focusSessionViewModel: FocusSessionViewModel(focusSessionManager: FocusSessionManager()), focusSessionNavigationViewModel: FocusSessionNavigationViewModel())
+    FocusIntentionSetView(focusSessionViewModel: FocusSessionViewModel(), focusSessionNavigationViewModel: FocusSessionNavigationViewModel())
 }
 
 

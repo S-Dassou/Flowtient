@@ -15,14 +15,10 @@ struct ContentView: View {
      */
     
     @StateObject var focusSessionNavigationViewModel = FocusSessionNavigationViewModel()
-    @StateObject var focusSessionViewModel: FocusSessionViewModel
+    @StateObject var focusSessionViewModel: FocusSessionViewModel = FocusSessionViewModel()
     @EnvironmentObject var focusSessionManager: FocusSessionManager
     @State var displayFocusSessionDetailSheet = false
     @Environment(\.scenePhase) var scenePhase
-    
-    init() {
-        _focusSessionViewModel = StateObject(wrappedValue: FocusSessionViewModel(focusSessionManager: FocusSessionManager()))
-    }
     
 
     var body: some View {
@@ -82,9 +78,21 @@ struct ContentView: View {
         })
         .onChange(of: scenePhase, {
             switch scenePhase {
-            case .active: focusSessionViewModel.calculateTimeDifference(); print("active")
-            case .background: focusSessionViewModel.timeOnLeave = Date(); print("background"); print(focusSessionViewModel.timeOnLeave ?? "notimeonleaveDetected")
-            case .inactive: focusSessionViewModel.timeOnLeave = Date(); print("inactive"); print(focusSessionViewModel.timeOnLeave ?? "notimeonleaveDetected")
+                
+            case .active:
+                focusSessionManager.calculateTimeDifference()
+                print("active")
+                
+            case .background:
+                print("background")
+                focusSessionManager.pauseSessionTimer()
+                print("bg: Pause at \(focusSessionManager.timeOnLeave?.timeIntervalSince1970 ?? 77.77)")
+            case .inactive:
+                print("inactive")
+                
+                
+                
+                
             default: print("ScenePhase: unexpected state")
             }
         })
@@ -92,7 +100,7 @@ struct ContentView: View {
 }
 
 #Preview {
-        ContentView()
+    ContentView()
         .environmentObject(FocusSessionManager())
 }
 
