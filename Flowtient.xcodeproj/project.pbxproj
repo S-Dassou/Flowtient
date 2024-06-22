@@ -47,6 +47,7 @@
 		F68D5AD92C24680000E68A29 /* CongratulationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68D5AD82C24680000E68A29 /* CongratulationsView.swift */; };
 		F68D5ADB2C246C8400E68A29 /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68D5ADA2C246C8400E68A29 /* VideoView.swift */; };
 		F68D5ADE2C246E2C00E68A29 /* CongratulationsVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F68D5ADD2C246E2C00E68A29 /* CongratulationsVideo.mp4 */; };
+		F68D5AE02C2790E100E68A29 /* CongratulationsProgressRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68D5ADF2C2790E100E68A29 /* CongratulationsProgressRing.swift */; };
 		F68E6EB72BB0686200754259 /* FocusTimeSetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68E6EB62BB0686200754259 /* FocusTimeSetViewModel.swift */; };
 		F68E6EB92BB06C6E00754259 /* FocusAppSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68E6EB82BB06C6E00754259 /* FocusAppSelectionViewModel.swift */; };
 		F68E6EF92BB2876600754259 /* FocusIntentionSetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68E6EF82BB2876600754259 /* FocusIntentionSetViewModel.swift */; };
@@ -137,6 +138,7 @@
 		F68D5AD82C24680000E68A29 /* CongratulationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratulationsView.swift; sourceTree = "<group>"; };
 		F68D5ADA2C246C8400E68A29 /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
 		F68D5ADD2C246E2C00E68A29 /* CongratulationsVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = CongratulationsVideo.mp4; sourceTree = "<group>"; };
+		F68D5ADF2C2790E100E68A29 /* CongratulationsProgressRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratulationsProgressRing.swift; sourceTree = "<group>"; };
 		F68E6EB62BB0686200754259 /* FocusTimeSetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusTimeSetViewModel.swift; sourceTree = "<group>"; };
 		F68E6EB82BB06C6E00754259 /* FocusAppSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusAppSelectionViewModel.swift; sourceTree = "<group>"; };
 		F68E6EF82BB2876600754259 /* FocusIntentionSetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusIntentionSetViewModel.swift; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 				F67894002BA5CBAD00ACA13F /* IntentionTextFieldRow.swift */,
 				F6A264C82C137358004D3E2A /* FocusSessionProgressBar.swift */,
 				F63071B12C1CED880003FFC9 /* ProgressRing.swift */,
+				F68D5ADF2C2790E100E68A29 /* CongratulationsProgressRing.swift */,
 				F63071B52C1FB2910003FFC9 /* DailyProgressBar.swift */,
 				F63071B92C207F370003FFC9 /* LargeStartButton.swift */,
 				F63071BD2C20E4670003FFC9 /* IntentionCheckBox.swift */,
@@ -547,6 +550,7 @@
 				F67893D12BA480DD00ACA13F /* FocusTimeSetView.swift in Sources */,
 				F68E6EFD2BB2D4DB00754259 /* CreateNewTagView.swift in Sources */,
 				F6A264CE2C170289004D3E2A /* IntentionModel.swift in Sources */,
+				F68D5AE02C2790E100E68A29 /* CongratulationsProgressRing.swift in Sources */,
 				F67893C82BA446F900ACA13F /* HomeView.swift in Sources */,
 				F63071C22C21011F0003FFC9 /* CircleXButton.swift in Sources */,
 				F67C08912BB5115A0020751B /* FocusSessionModel.swift in Sources */,
