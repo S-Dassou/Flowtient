@@ -11,18 +11,25 @@ struct ContentView: View {
     /*
      - timer: counting down from the time set in FocusTimeSetView
      - Progress Bar
-     - Button to end the focus session 
+     - Button to end the focus session
      */
+    
+    //when timer hits 0 --> present modal view --> on dismissal of congrats modal view --> show original timer view
     
     @StateObject var focusSessionNavigationViewModel = FocusSessionNavigationViewModel()
     @StateObject var focusSessionViewModel: FocusSessionViewModel = FocusSessionViewModel()
     @EnvironmentObject var focusSessionManager: FocusSessionManager
     @State var displayFocusSessionDetailSheet = false
+    @State var displayCongratulationsSheet = false
+    
     @Environment(\.scenePhase) var scenePhase
     
-
+    //present modal congratulations view when:
+    //1. end session button pressed - when timer = 0
+    //2. when timer = 0 naturally 
+    
     var body: some View {
-      //  @Bindable var focusSessionManager = focusSessionManager
+        
         ZStack {
             
             VStack {
@@ -60,7 +67,7 @@ struct ContentView: View {
             
             if displayFocusSessionDetailSheet == true {
                 FocusSessionDetailView(focusSessionViewModel: focusSessionViewModel)
-                    
+                
                     .onTapGesture {
                         displayFocusSessionDetailSheet = false
                     }
@@ -76,7 +83,20 @@ struct ContentView: View {
         .fullScreenCover(isPresented: $focusSessionNavigationViewModel.navigateToFocusMode, content: {
             FocusTimeSetView(focusSessionViewModel: focusSessionViewModel, focusSessionNavigationViewModel: focusSessionNavigationViewModel)
         })
+        
+        .sheet(isPresented: $displayCongratulationsSheet, onDismiss: {
+            focusSessionManager.countdownTimer = nil
+        }) {
+            CongratulationsView()
+                .environmentObject(focusSessionManager)
+        }
+        
+        .onChange(of: focusSessionManager.isTimerFinished) {
+            displayCongratulationsSheet = true
+        }
+        
         .onChange(of: scenePhase, {
+            
             switch scenePhase {
                 
             case .active:
@@ -90,9 +110,6 @@ struct ContentView: View {
             case .inactive:
                 print("inactive")
                 
-                
-                
-                
             default: print("ScenePhase: unexpected state")
             }
         })
@@ -103,6 +120,9 @@ struct ContentView: View {
     ContentView()
         .environmentObject(FocusSessionManager())
 }
+
+//congratulations view does not show twice
+
 
 //VStack {
 //    ForEach(focusSessionViewModel.intentions) { intention in

@@ -15,6 +15,8 @@ import DeviceActivity
 class FocusSessionManager: ObservableObject {
     @Published var remainingTime: Int = 0
     @Published var displayPercent: CGFloat = 0
+    @Published var isTimerFinished: Bool = false
+    
     var totalTime: Int = 0
     var countdownTimer: Timer?
     var timeOnLeave: Date?
@@ -62,6 +64,7 @@ class FocusSessionManager: ObservableObject {
         countdownTimer?.invalidate()
         remainingTime = 0
         totalTime = 0
+        self.isTimerFinished = true
     }
     
     func removeRestrictions(_ activities: [DeviceActivityName] = []) {

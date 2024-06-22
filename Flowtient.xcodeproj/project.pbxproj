@@ -44,6 +44,9 @@
 		F67894012BA5CBAD00ACA13F /* IntentionTextFieldRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67894002BA5CBAD00ACA13F /* IntentionTextFieldRow.swift */; };
 		F67894042BA7A7FD00ACA13F /* FocusSessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67894032BA7A7FD00ACA13F /* FocusSessionViewModel.swift */; };
 		F67C08912BB5115A0020751B /* FocusSessionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67C08902BB5115A0020751B /* FocusSessionModel.swift */; };
+		F68D5AD92C24680000E68A29 /* CongratulationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68D5AD82C24680000E68A29 /* CongratulationsView.swift */; };
+		F68D5ADB2C246C8400E68A29 /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68D5ADA2C246C8400E68A29 /* VideoView.swift */; };
+		F68D5ADE2C246E2C00E68A29 /* CongratulationsVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = F68D5ADD2C246E2C00E68A29 /* CongratulationsVideo.mp4 */; };
 		F68E6EB72BB0686200754259 /* FocusTimeSetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68E6EB62BB0686200754259 /* FocusTimeSetViewModel.swift */; };
 		F68E6EB92BB06C6E00754259 /* FocusAppSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68E6EB82BB06C6E00754259 /* FocusAppSelectionViewModel.swift */; };
 		F68E6EF92BB2876600754259 /* FocusIntentionSetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68E6EF82BB2876600754259 /* FocusIntentionSetViewModel.swift */; };
@@ -131,6 +134,9 @@
 		F67894032BA7A7FD00ACA13F /* FocusSessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSessionViewModel.swift; sourceTree = "<group>"; };
 		F678940E2BAD080000ACA13F /* Flowtient.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Flowtient.entitlements; sourceTree = "<group>"; };
 		F67C08902BB5115A0020751B /* FocusSessionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSessionModel.swift; sourceTree = "<group>"; };
+		F68D5AD82C24680000E68A29 /* CongratulationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongratulationsView.swift; sourceTree = "<group>"; };
+		F68D5ADA2C246C8400E68A29 /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
+		F68D5ADD2C246E2C00E68A29 /* CongratulationsVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = CongratulationsVideo.mp4; sourceTree = "<group>"; };
 		F68E6EB62BB0686200754259 /* FocusTimeSetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusTimeSetViewModel.swift; sourceTree = "<group>"; };
 		F68E6EB82BB06C6E00754259 /* FocusAppSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusAppSelectionViewModel.swift; sourceTree = "<group>"; };
 		F68E6EF82BB2876600754259 /* FocusIntentionSetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusIntentionSetViewModel.swift; sourceTree = "<group>"; };
@@ -196,6 +202,7 @@
 		F63071C82C21D06D0003FFC9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F68D5ADC2C246E2100E68A29 /* Videos */,
 				F63071C92C21D08C0003FFC9 /* LottieShield.json */,
 			);
 			path = Resources;
@@ -244,7 +251,7 @@
 				F67894022BA79B4300ACA13F /* Models */,
 				F67893D42BA4968100ACA13F /* ViewModels */,
 				F67893CF2BA480C300ACA13F /* Views */,
-				F67893CA2BA46DCE00ACA13F /* Services */,
+				F67893CA2BA46DCE00ACA13F /* Utilities */,
 				F67893C42BA3BDCE00ACA13F /* Components */,
 				F67893C32BA3BC7500ACA13F /* Auth */,
 				F6F92B9A2BAE50E5005CC497 /* Extensions */,
@@ -290,11 +297,12 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		F67893CA2BA46DCE00ACA13F /* Services */ = {
+		F67893CA2BA46DCE00ACA13F /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				F68D5ADA2C246C8400E68A29 /* VideoView.swift */,
 			);
-			path = Services;
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		F67893CF2BA480C300ACA13F /* Views */ = {
@@ -305,6 +313,7 @@
 				F67893D82BA51CB300ACA13F /* FocusAppSelectionView.swift */,
 				F68E6EFC2BB2D4DB00754259 /* CreateNewTagView.swift */,
 				F63071B72C20419D0003FFC9 /* FocusSessionDetailView.swift */,
+				F68D5AD82C24680000E68A29 /* CongratulationsView.swift */,
 				F67893B52BA3BC3200ACA13F /* ContentView.swift */,
 			);
 			path = Views;
@@ -331,6 +340,14 @@
 				F6A264CD2C170289004D3E2A /* IntentionModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		F68D5ADC2C246E2100E68A29 /* Videos */ = {
+			isa = PBXGroup;
+			children = (
+				F68D5ADD2C246E2C00E68A29 /* CongratulationsVideo.mp4 */,
+			);
+			path = Videos;
 			sourceTree = "<group>";
 		};
 		F6A264CA2C145B3A004D3E2A /* Managers */ = {
@@ -476,6 +493,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F63071CA2C21D08C0003FFC9 /* LottieShield.json in Resources */,
+				F68D5ADE2C246E2C00E68A29 /* CongratulationsVideo.mp4 in Resources */,
 				F67893BB2BA3BC3500ACA13F /* Preview Assets.xcassets in Resources */,
 				F67893B82BA3BC3500ACA13F /* Assets.xcassets in Resources */,
 			);
@@ -508,6 +526,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6A264C72C136C72004D3E2A /* FocusSessionNavigationViewModel.swift in Sources */,
+				F68D5ADB2C246C8400E68A29 /* VideoView.swift in Sources */,
 				F67893D92BA51CB300ACA13F /* FocusAppSelectionView.swift in Sources */,
 				F63071C02C20E9B00003FFC9 /* FocusSessionDetailViewModel.swift in Sources */,
 				F63071C42C21CCF60003FFC9 /* LottieView.swift in Sources */,
@@ -519,6 +538,7 @@
 				F67893C22BA3BC7100ACA13F /* Login.swift in Sources */,
 				F67893D32BA48DC200ACA13F /* FocusIntentionSetView.swift in Sources */,
 				F68E6EF92BB2876600754259 /* FocusIntentionSetViewModel.swift in Sources */,
+				F68D5AD92C24680000E68A29 /* CongratulationsView.swift in Sources */,
 				F67894012BA5CBAD00ACA13F /* IntentionTextFieldRow.swift in Sources */,
 				F67893B62BA3BC3200ACA13F /* ContentView.swift in Sources */,
 				F67894042BA7A7FD00ACA13F /* FocusSessionViewModel.swift in Sources */,
