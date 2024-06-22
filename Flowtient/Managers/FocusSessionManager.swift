@@ -50,6 +50,7 @@ class FocusSessionManager: ObservableObject {
                 strongSelf.displayPercent = CGFloat(strongSelf.totalTime - strongSelf.remainingTime) / CGFloat(strongSelf.totalTime)
                 if strongSelf.remainingTime <= 0 {
                     strongSelf.stopFocusSession()
+                    strongSelf.isTimerFinished = true
                 }
             }
         }
@@ -62,9 +63,11 @@ class FocusSessionManager: ObservableObject {
     
     func stopFocusSession() {
         countdownTimer?.invalidate()
+        countdownTimer = nil
         remainingTime = 0
         totalTime = 0
-        self.isTimerFinished = true
+        displayPercent = 0
+        isTimerFinished = true
     }
     
     func removeRestrictions(_ activities: [DeviceActivityName] = []) {

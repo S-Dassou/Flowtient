@@ -85,15 +85,20 @@ struct ContentView: View {
         })
         
         .sheet(isPresented: $displayCongratulationsSheet, onDismiss: {
-            focusSessionManager.countdownTimer = nil
+            displayCongratulationsSheet = false
+            
+           // focusSessionManager.countdownTimer = nil
+            
         }) {
             CongratulationsView()
                 .environmentObject(focusSessionManager)
         }
-        
-        .onChange(of: focusSessionManager.isTimerFinished) {
-            displayCongratulationsSheet = true
-        }
+        .onChange(of: focusSessionManager.isTimerFinished, { _, isFinished in
+            if isFinished {
+                displayCongratulationsSheet = true
+                focusSessionManager.isTimerFinished = false
+            }
+        })
         
         .onChange(of: scenePhase, {
             
