@@ -42,6 +42,10 @@ class FocusSessionManager: ObservableObject {
         }
     }
     
+    var completedTime: Int {
+        return totalTime - remainingTime
+    }
+    
     func startSessionTimer() {
         self.countdownTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] timer in
             guard let strongSelf = self else { return }

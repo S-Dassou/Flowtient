@@ -11,7 +11,7 @@ struct CongratulationsProgressRing: View {
     
     @Binding var percentComplete: CGFloat
     
-    var displayPercentComplete: String = "Hi"
+    var timeCompleted: String
     
     var body: some View {
         
@@ -30,10 +30,10 @@ struct CongratulationsProgressRing: View {
             VStack(spacing: 30) {
                 //MARK: Elapsed Time
                 VStack(spacing: 5) {
-                    Text("% Completed")
+                    Text("Time in Flow")
                         .opacity(0.7)
                         .foregroundStyle(Color.white)
-                    Text(displayPercentComplete)
+                    Text(timeCompleted)
                         .font(.title)
                         .fontWeight(.bold)
                         .foregroundStyle(Color.white)
@@ -48,5 +48,5 @@ struct CongratulationsProgressRing: View {
 }
 
 #Preview {
-    CongratulationsProgressRing(percentComplete: .constant(0.5))
+    CongratulationsProgressRing(percentComplete: .constant(0.5), timeCompleted: "5")
 }

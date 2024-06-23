@@ -22,12 +22,10 @@ struct CongratulationsView: View {
                     .padding()
                 
                 //progress ring
-                ProgressRing(progress: .constant(1), remainingTime: $focusSessionManager.remainingTime, totalTime: $focusSessionManager.totalTime)
+                CongratulationsProgressRing(percentComplete: .constant(0.5), timeCompleted: focusSessionManager.displayTimeElapsed)
                     
                 
                 Spacer()
-                
-            
             }
         }
     }
