@@ -54,7 +54,6 @@ class FocusSessionManager: ObservableObject {
                 strongSelf.displayPercent = CGFloat(strongSelf.totalTime - strongSelf.remainingTime) / CGFloat(strongSelf.totalTime)
                 if strongSelf.remainingTime <= 0 {
                     strongSelf.stopFocusSession()
-                    strongSelf.isTimerFinished = true
                 }
             }
         }
@@ -72,6 +71,7 @@ class FocusSessionManager: ObservableObject {
         totalTime = 0
         displayPercent = 0
         isTimerFinished = true
+        print("stop focus session ITF: \(isTimerFinished)")
     }
     
     func removeRestrictions(_ activities: [DeviceActivityName] = []) {
@@ -93,15 +93,15 @@ class FocusSessionManager: ObservableObject {
     
     func calculateTimeDifference() {
             if let timeOnLeave = timeOnLeave {
-                print("DEBUG: TimeOnLeave \(timeOnLeave)")
+              //  print("DEBUG: TimeOnLeave \(timeOnLeave)")
                 let timeOnLeaveInSeconds = timeOnLeave.timeIntervalSince1970
-                print("DEBUG: TimeOnLeaveInSecs \(timeOnLeaveInSeconds)")
+               //print("DEBUG: TimeOnLeaveInSecs \(timeOnLeaveInSeconds)")
                 let timeOnReturnInSeconds = Date().timeIntervalSince1970
-                print("DEBUG: TimeOnReturnInSecs \(timeOnReturnInSeconds)")
+//                print("DEBUG: TimeOnReturnInSecs \(timeOnReturnInSeconds)")
              
                 let totalTimeElapsed = (timeOnReturnInSeconds - timeOnLeaveInSeconds)
                 
-                print("DEBUG: totalTimeElapsed \(totalTimeElapsed)")
+            //    print("DEBUG: totalTimeElapsed \(totalTimeElapsed)")
                 
                 remainingTime -= Int(totalTimeElapsed)
                 if remainingTime <= 0 {

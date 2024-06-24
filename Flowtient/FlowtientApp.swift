@@ -15,26 +15,17 @@ struct FlowtientApp: App {
     
     var body: some Scene {
         WindowGroup {
-            
-            TabView {
-                ContentView()
-                    .environmentObject(focusSessionManager)
-                    .tabItem {
-                        Image(systemName: "house.fill")
-                        Text("Home")
+            ContentView()
+                .environmentObject(focusSessionManager)
+                .onAppear(perform: {
+                    Task {
+                        do {
+                            try await center.requestAuthorization(for: .individual)
+                        } catch {
+                            print("Failed authorization with error \(error)")
+                        }
                     }
-                    .tag(0)
-                
-            }
-            .onAppear(perform: {
-                Task {
-                    do {
-                        try await center.requestAuthorization(for: .individual)
-                    } catch {
-                        print("Failed authorization with error \(error)")
-                    }
-                }
-            })
+                })
         }
     }
 }

@@ -86,6 +86,8 @@ struct ContentView: View {
         
         .sheet(isPresented: $displayCongratulationsSheet, onDismiss: {
             displayCongratulationsSheet = false
+            focusSessionManager.isTimerFinished = false
+            print("modal view dismissed")
             
            // focusSessionManager.countdownTimer = nil
             
@@ -96,7 +98,6 @@ struct ContentView: View {
         .onChange(of: focusSessionManager.isTimerFinished, { _, isFinished in
             if isFinished {
                 displayCongratulationsSheet = true
-                focusSessionManager.isTimerFinished = false
             }
         })
         
@@ -105,13 +106,19 @@ struct ContentView: View {
             switch scenePhase {
                 
             case .active:
-                focusSessionManager.calculateTimeDifference()
+                if focusSessionManager.countdownTimer != nil {
+                    focusSessionManager.calculateTimeDifference()
+                }
                 print("active")
                 
             case .background:
                 print("background")
                 focusSessionManager.pauseSessionTimer()
-                print("bg: Pause at \(focusSessionManager.timeOnLeave?.timeIntervalSince1970 ?? 77.77)")
+//                if focusSessionManager.isTimerFinished {
+//                    displayCongratulationsSheet = false  // Ensure modal is not shown again when app is resumed
+//                    print("background hider activated")
+//                }
+                print("Is Timer Finished: \(focusSessionManager.isTimerFinished)")
             case .inactive:
                 print("inactive")
                 
@@ -125,14 +132,3 @@ struct ContentView: View {
     ContentView()
         .environmentObject(FocusSessionManager())
 }
-
-//congratulations view does not show twice
-
-
-//VStack {
-//    ForEach(focusSessionViewModel.intentions) { intention in
-//        List {
-//            Text(intention.title)
-//        }
-//    }
-//}
