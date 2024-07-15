@@ -24,10 +24,6 @@ struct ContentView: View {
     
     @Environment(\.scenePhase) var scenePhase
     
-    //present modal congratulations view when:
-    //1. end session button pressed - when timer = 0
-    //2. when timer = 0 naturally 
-    
     var body: some View {
         
         ZStack {
